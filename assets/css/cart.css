@@ -147,11 +147,24 @@ p h1 h2 h3 h4 h5 h6 span{
     align-items: center;
 }
 
-.cart .item--costWraper__productCost{
+.cart .item--costWraper__productCost ,
+.item--costWraper__amount{
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 2px;
+    padding: 0 3px;
 
+}
+
+.item--costWraper__dolarSign{
+    font-size: 1.2rem;
+     font-weight: 900;
+}
+.item--costWraper__Xsign{
+    color: red; 
+    font-size: 1.2rem; 
+    font-weight: 900;
+    padding: 0 3px;
 }
 
 .cart .item--deleteWraper{

@@ -6,11 +6,12 @@
 
 <div class="cart">
     <div class="container-fluid">
+
+        <% if(items.length == 0){%>
+        <p class="alert alert-danger">there no items</p>
+        <% } else { %>
+        <% for(let i = 0 ; i < items.length ; i++){ %>
         <form method="POST">
-            <% if(items.length == 0){%>
-            <p class="alert alert-danger">there no items</p>
-            <% } else { %>
-            <% for(let i = 0 ; i < items.length ; i++){ %>
             <div class="item">
                 <div class="item--imgaeWraper">
                     <img class="item--imgaeWraper__productImage" src=" <%= items[i].image_name%>">
@@ -52,7 +53,12 @@
 
 
                 <div class="item--costWraper">
-                    <span class="item--costWraper__productCost"><%= items[i].price%></span>
+                    <span class="item--costWraper__dolarSign">$</span>
+                    <span class="item--costWraper__productCost"><%= items[i].price%> </span>
+                    <span class="item--costWraper__Xsign"> <i class="fas fa-times fa-sm"></i>
+                    </span>
+                    <span class="item--costWraper__amount"> <%= items[i].amount%></span>
+
                 </div>
                 <!--.item--costWraper -->
 
@@ -122,41 +128,40 @@
 
 
 
-
-            </div>
-            <!--emd .item -->
-            <% } %>
-
-            <% } %>
-
-            <!--start checkout-->
-            <div class="checkout">
-                <div class="container-fluid">
-                    <div class="checkout--subTotal">
-                        <p class="checkout--subTotal_label">subtotal</p>
-                        <p class="checkout--subTotal__price"></p>
-                    </div>
-                    <div class="checkout--ShippingCost">
-                        <p class="checkout--ShippingCost__label">shipping cost</p>
-                        <p class="checkout--ShippingCost__price">$12.00</p>
-                    </div>
-                    <div class="checkout--total">
-                        <p class="checkout--total__label">total cost</p>
-                        <p class="checkout--total__price"></p>
-                    </div>
-
-                    <div class="checkout--buttonWraper">
-                        <form method="POST">
-                            <button formaction="/verifyOrder/orderAll"
-                                class="checkout--buttonWraper__btn">checkout</button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-            <!--checkout-->
         </form>
     </div>
+    <!--emd .item -->
+    <% } %>
+
+    <% } %>
+
+    <!--start checkout-->
+    <div class="checkout">
+        <div class="container-fluid">
+            <div class="checkout--subTotal">
+                <p class="checkout--subTotal_label">subtotal</p>
+                <p class="checkout--subTotal__price"></p>
+            </div>
+            <div class="checkout--ShippingCost">
+                <p class="checkout--ShippingCost__label">shipping cost</p>
+                <p class="checkout--ShippingCost__price">$12.00</p>
+            </div>
+            <div class="checkout--total">
+                <p class="checkout--total__label">total cost</p>
+                <p class="checkout--total__price"></p>
+            </div>
+
+            <div class="checkout--buttonWraper">
+                <form method="POST">
+                    <button formaction="/verifyOrder/orderAll" class="checkout--buttonWraper__btn">checkout</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!--checkout-->
+
+</div>
 </div>
 
 

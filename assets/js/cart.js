@@ -1,6 +1,7 @@
 /* get all product cost and add them togother */
 window.onload = function totalCostfun() {
     let productCost = document.querySelectorAll('.item--costWraper__productCost')
+    let item_amount = document.querySelectorAll('.item--costWraper__amount')
     let checkout_SubTotal_Price = document.querySelector('.checkout--subTotal__price')
     let checkout_ShippingCost_price = document.querySelector('.checkout--ShippingCost__price')
     let checkout__total__price = document.querySelector('.checkout--total__price')
@@ -9,7 +10,7 @@ window.onload = function totalCostfun() {
 
     for (let i = 0; i < productCost.length; i++) {
         /* get all product cost text and remove the $ and add them togother */
-        subtotalCost += parseInt(productCost[i].textContent)
+        subtotalCost += parseInt(productCost[i].textContent) * parseInt(item_amount[i].textContent)
     }
 
     checkout_SubTotal_Price.textContent = '$' + subtotalCost
