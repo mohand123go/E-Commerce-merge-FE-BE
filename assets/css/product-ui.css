@@ -1,0 +1,334 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+body{
+   
+    min-height: 100vh;
+    background: linear-gradient(54deg, rgba(213,203,202,1) 0%, rgba(232,227,224,1) 20%, rgba(227,222,219,1) 51%, rgba(174,168,168,1) 100%);
+
+
+
+}
+
+.display_none{
+    display: none;
+}
+.ui_product button{
+    position: relative;
+    top: -240px;
+    left: 16px;
+}
+
+#add_to_cart_ex_btn{
+    position: absolute;
+   top: 10px;
+    left: 20px;
+    font-size: 2rem;
+    color: #ff0000a6;
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+  
+    z-index: 100000;
+}
+#add_to_cart_ex_btn:hover{
+  cursor: pointer;
+}
+
+.ui_product{
+   
+    z-index: 999999999999999999999;
+    position: absolute;
+    
+    
+   
+}
+.ui_product .ui_card{
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+    height: 450px;
+    
+    background-color: white;
+    box-shadow: 0.5px 0.5px 20px  rgba(0,0, 0, 0.06),
+                -0.5px -0.5px 20px  rgba(0,0, 0, 0.06) ;
+               
+    border-radius: 20px;
+}
+.ui_product .ui_card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.ui_product .ui_card:hover::before{
+    clip-path: circle(300px at 80% -20%);
+}
+
+.ui_product .ui_card:after{
+    content: "Cotchy";
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 6rem;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255, 255, 0.06);
+   
+   
+
+}
+.ui_product .ui_card .imgBox{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 500;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+    
+}
+
+.ui_product .ui_card:hover .imgBox{
+    top:20%;
+    transition: translateY(0);
+}
+
+
+.ui_product .ui_card .imgBox img{
+    width: 200px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  
+}
+.ui_product .ui_card   .contentBox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.ui_product .ui_card:hover   .contentBox{
+    height: 220px;  
+
+}
+
+
+.ui_product .ui_card   .contentBox h4{
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: black;
+  font-size: 2rem;
+}
+
+.ui_product .ui_card   .contentBox .size,
+.ui_product .ui_card   .contentBox .color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    
+  
+    
+}
+.ui_product .ui_card   .contentBox .color{
+    opacity: 0;
+}
+
+
+.ui_product .ui_card:hover   .contentBox .color{
+    opacity: 1;
+    transition-delay: 0.6s;
+}
+
+.ui_product .ui_card   .contentBox .size h4,
+.ui_product .ui_card   .contentBox .color h4{
+    color:black;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin: 0;
+    margin-right: 10px;
+
+}
+
+
+
+.ui_product .ui_card  .contentBox form a input{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+
+ .ui_product .ui_card .contentBox a{
+     display: inline-block;
+  
+     background: #fff;
+     border-radius: 4px;
+     margin-top: 15px;
+     text-decoration: none;
+     font-weight: 600;
+     color: #111;
+     opacity: 0;
+     transform: translateY(50px);
+     border: 1px  solid black;
+     border-right: none;
+     transition: 0.5s;
+     
+ }
+ .ui_product .ui_card:hover  .contentBox form a {
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.75s;
+    
+}
+
+
+.priceTage{
+    background-color: rgb(118, 241, 118);
+    display: block;
+    width: 95px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 151px;
+    border-radius: 20px 0 100px 0;
+    left: 203px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s; 
+}
+.ui_product .ui_card:hover  .contentBox .priceTage{
+
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.75s;
+    
+}
+select{
+
+   height: 26px;
+    margin-right: 5px;
+   background-color: white;
+   letter-spacing: 2px;
+ 
+
+   transition: 0.5s;
+   border-radius: 4px;
+}
+
+
+
+
+/*start radio-btn-ctn */
+
+.radio-btn-ctn {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:25px;
+    height:25px
+  }
+  
+  /* Hide the browser's default radio button */
+  .radio-btn-ctn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .radio-btn-ctn .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .radio-btn-ctn:hover input ~ .checkmark {
+    opacity :0.5
+  }
+  
+  /* When the radio button is checked, add a blue background */
+
+  
+  .radio-btn-ctn:nth-child(2) input ~ .checkmark {
+    background-color: #9dbc28;
+  }
+  
+  .radio-btn-ctn:nth-child(3) input ~ .checkmark {
+    background-color: #03a9f4;
+  }
+  
+  .radio-btn-ctn:nth-child(4) input ~ .checkmark {
+    background-color: #e91e63;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .radio-btn-ctn input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .radio-btn-ctn .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+  
+  
+  
+  /*end radio-btn-ctn */
+  
+  

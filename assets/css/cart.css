@@ -1,0 +1,318 @@
+p h1 h2 h3 h4 h5 h6 span{
+    padding: 0;
+    margin: 0;
+}
+
+.width-100{
+    width: 100%;
+    height: 100%;
+}
+
+
+.cart .item{
+    display: grid;
+    grid-template-areas: 
+    "img  productTag  productTag  count  colors  size cost delet  ";
+    gap : 15px 0;
+   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+   padding-bottom: 15px;
+   margin: 20px 0;
+}
+
+
+
+
+
+
+.cart .item--imgaeWraper__productImage{
+    width: 100px;
+ 
+}
+
+.cart .item--productNameWraper__productName{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+
+
+
+.cart .item--imgaeWraper{
+    grid-area:img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cart .item--productNameWraper{
+    grid-area:productTag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;;
+}
+
+.cart .item--amountWraper{
+    grid-area:count;
+    display: flex;  
+    justify-content: center;
+    font-size: 1.2rem;
+   align-items: center;
+
+  
+}
+
+
+
+
+.cart .item--amountWraper_counter{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding: 0;
+    margin: 0 8px;
+    width: 30px;
+    border: none;
+    height: 30px;
+    text-align: center;
+}
+
+.cart .item--amountWraper__minus,
+.cart .item--amountWraper__plus {
+    padding: 0;
+    border: 1px solid black;
+    text-align: center;
+    display: block;
+   width: 25px;
+  
+   color: white;
+   background-color: black;
+
+  
+}
+
+.cart .item--amountWraper__minus:hover,
+.cart .item--amountWraper__plus:hover{
+    cursor: pointer;
+}
+
+
+.cart .item--colorWraper{
+    grid-area:colors ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cart .item--colorWraper__productColorCricle{
+    margin-right: 8px;
+    background-color: blue;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.cart .item--colorWraper__productColor{
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+
+.cart .item--sizeWraper{
+    grid-area:size ;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cart .item--sizeWraper__productSize{
+    padding-left: 3px;
+}
+
+
+
+
+.cart .item--costWraper{
+    grid-area:cost ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart .item--costWraper__productCost{
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+}
+
+.cart .item--deleteWraper{
+   display: none;
+}
+
+.cart .item--deleteWraper-lgSreen{
+    grid-area:delet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart .item--offset{
+    display: none;
+}
+.cart .item--deleteWraper__btn {
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 10px;
+  
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left:10px;
+}
+
+
+.cart .btn-delete {
+ 
+    background-color: red;
+   
+}
+.cart .btn-save {
+ 
+    background-color: #55ca70;
+   
+}
+
+.cart .btn-order {
+ 
+    background-color: #007bff;
+   
+}
+
+
+.cart .checkout{
+    margin: 0 auto;
+    max-width:580px;
+   
+}
+.cart .checkout--subTotal,
+.cart .checkout--ShippingCost,
+.cart .checkout--total
+{
+    margin: 0 auto;
+    text-transform: capitalize;
+    
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    
+    margin: 20px 0;
+    align-items: center;
+    
+}
+.cart .checkout--buttonWraper{
+    margin: 0 auto;
+    text-transform: capitalize;
+    
+    display: flex;
+    justify-content: space-around;
+
+    
+    margin: 20px 0;
+    align-items: center;
+}
+.cart .checkout--subTotal > p,
+.cart .checkout--ShippingCost > p,
+.cart .checkout--total  > p{
+    padding: 15px 0;
+    margin: 0;
+    font-weight: bold;
+
+}
+.cart .checkout--subTotal > p,
+.cart .checkout--ShippingCost > p{
+    font-size: 1rem;
+    opacity: 0.8;
+}
+.cart .checkout--total  > p{
+    font-size: 1.3rem;
+}
+
+.cart .checkout--buttonWraper__btn{
+    border: none;
+    color: white;
+    background-color: black;
+    padding: 0.5rem 1.5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.cart .checkout--subTotal__price,
+.cart .checkout--ShippingCost__price,
+.cart .checkout--total__price,
+.cart .checkout--buttonWraper__btn{
+   letter-spacing: 3px;
+}
+
+@media (max-width: 992px) {  
+    .cart .item--productNameWraper{
+      
+        width: auto;;
+    }
+
+    .cart .item--productNameWraper__productName{
+        font-size: 1rem;
+        
+        letter-spacing: 1px;
+    }
+    .cart .item--offset{
+        grid-area: itemOffset;
+
+    text-align: center;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .cart .item--deleteWraper-lgSreen{
+        display: none;
+    }
+
+    .cart .item--offset1{
+        grid-area: itemOffset1;
+    }
+
+    .cart .item--offset2{
+        grid-area: itemOffset2;
+    }
+
+    .cart .item{
+        display: grid;
+        grid-template-areas: 
+        "img  productTag      cost "
+        " count   size   colors  "
+        "itemOffset1 delet  itemOffset2";
+    }
+   
+    .cart .item--deleteWraper{
+        grid-area:delet;
+       display: flex;
+       justify-content: center;
+    }
+
+    .cart .item--deleteWraper__btn {
+    
+        margin-left:0;
+    }
+    
+  
+}
