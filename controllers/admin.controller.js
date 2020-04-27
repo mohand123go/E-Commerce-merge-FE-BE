@@ -78,6 +78,7 @@ exports.searchByUserEmail = (req, res, next) => {
 }
 
 exports.postAdd = (req, res, next) => {
+
     if (validationResult(req).isEmpty()) {
 
         ProductsModel.postProducts({

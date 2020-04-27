@@ -78,17 +78,15 @@
 
                 <form action="/cart" method="POST">
                   <div class="size">
+
                     <h4>Size :</h4>
-                    <select>
-                      <option>39</option>
-                      <option>40</option>
-                      <option>41</option>
-                      <option>43</option>
-                      <option>44</option>
-                      <option>45</option>
-                      <option>46</option>
-                      <option>47</option>
-                      <option>48</option>
+                    <select name="size">
+
+                      <% for(let i = 0 ; i < product.size.length ; i++ ){ %>
+                      <option value="<%= product.size[i]%>"><%= product.size[i]%></option>
+                      <% } %>
+
+
                     </select>
                   </div>
 

@@ -9,7 +9,8 @@ const cartSchema = mongoose.Schema({
     productId: String,
     timestamp: Number,
     image_name: String,
-    color: String
+    color: String,
+    size: String
 })
 
 const cartItem = mongoose.model('cart', cartSchema)

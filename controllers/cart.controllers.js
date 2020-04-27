@@ -11,7 +11,7 @@ exports.postCart = (req, res, next) => {
             productId: req.body.productId,
             image_name: req.body.image_name,
             color: req.body.color,
-
+            size: req.body.size,
 
             timestamp: Date.now()
         }).then(() => {
