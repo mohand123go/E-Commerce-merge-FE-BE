@@ -17,8 +17,7 @@ router.post('/', authguard.isAuth,
 router.post('/save', authguard.isAuth,
     bodyParser.urlencoded({ extended: true }),
     check('amount').not().isEmpty().withMessage('Amount is require')
-        .isInt({ min: 1, max: 100 }).withMessage("amount  rang must be from  1 to 100")
-    , cartController.postCartSave)
+        .isInt({ min: 1, max: 100 }).withMessage("amount  rang must be from  1 to 100"), cartController.postCartSave)
 
 router.post('/delete', authguard.isAuth,
     bodyParser.urlencoded({ extended: true })

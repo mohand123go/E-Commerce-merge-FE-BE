@@ -109,7 +109,7 @@ p h1 h2 h3 h4 h5 h6 span{
 
 
 .cart .item--colorWraper__productColorCricle{
-    margin-right: 8px;
+    margin-left: 8px;
     background-color: blue;
     display: inline-block;
     width: 20px;

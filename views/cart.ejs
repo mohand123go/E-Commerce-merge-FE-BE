@@ -6,61 +6,64 @@
 
 <div class="cart">
     <div class="container-fluid">
-        <% if(items.length == 0){%>
-        <p class="alert alert-danger">there no items</p>
-        <% } else { %>
-        <% for(let i = 0 ; i < items.length ; i++){ %>
-        <div class="item">
-            <div class="item--imgaeWraper">
-                <img class="item--imgaeWraper__productImage" src=" <%= items[i].image_name%>">
+        <form method="POST">
+            <% if(items.length == 0){%>
+            <p class="alert alert-danger">there no items</p>
+            <% } else { %>
+            <% for(let i = 0 ; i < items.length ; i++){ %>
+            <div class="item">
+                <div class="item--imgaeWraper">
+                    <img class="item--imgaeWraper__productImage" src=" <%= items[i].image_name%>">
 
-            </div>
-            <!--.item--imgaeWraper-->
+                </div>
+                <!--.item--imgaeWraper-->
 
-            <div class="item--productNameWraper">
-                <p class="item--productNameWraper__productName"><%= items[i].name %></p>
+                <div class="item--productNameWraper">
+                    <p class="item--productNameWraper__productName"><%= items[i].name %></p>
 
-            </div>
-            <!--.item--productNameWraper-->
+                </div>
+                <!--.item--productNameWraper-->
 
-            <div class="item--amountWraper">
-                <span onclick="increaseAmountByOne(this)" class="item--amountWraper__plus"><i
-                        class=" width-100 fas  fa-plus fa-xs"></i></span>
-                <input class="item--amountWraper_counter" disabled value='<%= items[i].amount%>'>
-                <span onclick="decreaseAmountByOne(this)" class="item--amountWraper__minus"><i
-                        class="width-100  fas fa-minus fa-xs"></i></span>
-            </div>
-            <!--.item--amountWraper -->
+                <div class="item--amountWraper">
+                    <span onclick="increaseAmountByOne(this)" class="item--amountWraper__plus"><i
+                            class=" width-100 fas  fa-plus fa-xs"></i></span>
+                    <input name="amount" class="item--amountWraper_counter" value='<%= items[i].amount%>'>
+                    <span onclick="decreaseAmountByOne(this)" class="item--amountWraper__minus"><i
+                            class="width-100  fas fa-minus fa-xs"></i></span>
 
-            <div class="item--colorWraper">
-                <span class="item--colorWraper__productColorCricle"></span>
-                <span class="item--colorWraper__productColor">blue</span>
+                </div>
+                <!--.item--amountWraper -->
 
-            </div>
-            <!--.item--colorWraper -->
-
-            <div class="item--sizeWraper">
-                <span class="item--sizeWraper__productSizeTag">ٍsize : </span>
-                <span class="item--sizeWraper__productSize"> 45</span>
-            </div>
-            <!--.item--sizeWraper -->
+                <div class="item--colorWraper">
+                    <span class="item--colorWraper__productColor">color : </span>
+                    <span class="item--colorWraper__productColorCricle"
+                        style="background-color: <%=items[i].color%>"></span>
 
 
+                </div>
+                <!--.item--colorWraper -->
 
-            <div class="item--costWraper">
-                <span class="item--costWraper__productCost"><%= items[i].price%></span>
-            </div>
-            <!--.item--costWraper -->
+                <div class="item--sizeWraper">
+                    <span class="item--sizeWraper__productSizeTag">ٍsize : </span>
+                    <span class="item--sizeWraper__productSize"> 45</span>
+                </div>
+                <!--.item--sizeWraper -->
 
 
 
+                <div class="item--costWraper">
+                    <span class="item--costWraper__productCost"><%= items[i].price%></span>
+                </div>
+                <!--.item--costWraper -->
 
 
-            <div class="item--deleteWraper-lgSreen">
 
-                <form method="POST">
 
-                    <input type="hidden" name="amount" value='<%= items[i].amount%>'>
+
+                <div class="item--deleteWraper-lgSreen">
+
+
+
                     <input type="hidden" name='name' value="<%= items[i].name %>">
                     <input type="hidden" name='price' value="<%= items[i].price %>">
                     <input type="hidden" name='cartId' value="<%= items[i]._id %>">
@@ -79,75 +82,80 @@
 
                     <input type="submit" name="submit" formaction="/verifyOrder"
                         class="btn-order item--deleteWraper__btn" value="order">
-                </form>
-
-            </div>
 
 
-
-            <div class="item--offset item--offset1 ">
-
-
-                <button class="btn-save item--deleteWraper__btn ">save</button>
-
-            </div>
-
-            <div class="item--deleteWraper">
-
-                <button class=" btn-order item--deleteWraper__btn ">order</button>
-
-            </div>
-
-            <!--.item--deleteWraper -->
-
-            <!--.item--deleteWraper -->
-            <div class="item--offset item--offset2 ">
-                <button class=" btn-delete item--deleteWraper__btn item--deleteWraper__deleteButton"><i
-                        class="far fa-trash-alt"></i></button>
-
-            </div>
-
-            <!--.item--deleteWraper -->
-
-            <!--.item--deleteWraper -->
-
-
-
-
-
-
-
-        </div>
-        <!--emd .item -->
-        <% } %>
-
-        <% } %>
-
-        <!--start checkout-->
-        <div class="checkout">
-            <div class="container-fluid">
-                <div class="checkout--subTotal">
-                    <p class="checkout--subTotal_label">subtotal</p>
-                    <p class="checkout--subTotal__price"></p>
-                </div>
-                <div class="checkout--ShippingCost">
-                    <p class="checkout--ShippingCost__label">shipping cost</p>
-                    <p class="checkout--ShippingCost__price">$12.00</p>
-                </div>
-                <div class="checkout--total">
-                    <p class="checkout--total__label">total cost</p>
-                    <p class="checkout--total__price"></p>
                 </div>
 
-                <div class="checkout--buttonWraper">
-                    <form method="POST">
-                        <button formaction="/verifyOrder/orderAll" class="checkout--buttonWraper__btn">checkout</button>
-                    </form>
+
+                <div class="item--offset item--offset1 ">
+
+
+                    <button class="btn-save item--deleteWraper__btn" formaction="/cart/save" name="submit">save</button>
+
                 </div>
 
+                <div class="item--deleteWraper">
+
+                    <button class=" btn-order item--deleteWraper__btn " name="submit"
+                        formaction="/verifyOrder">order</button>
+
+                </div>
+
+                <!--.item--deleteWraper -->
+
+                <!--.item--deleteWraper -->
+                <div class="item--offset item--offset2 ">
+                    <button formaction="/cart/delete"
+                        class=" btn-delete item--deleteWraper__btn item--deleteWraper__deleteButton"><i
+                            class="far fa-trash-alt"></i></button>
+
+                </div>
+
+
+
+                <!--.item--deleteWraper -->
+
+                <!--.item--deleteWraper -->
+
+
+
+
+
+
+
             </div>
-        </div>
-        <!--checkout-->
+            <!--emd .item -->
+            <% } %>
+
+            <% } %>
+
+            <!--start checkout-->
+            <div class="checkout">
+                <div class="container-fluid">
+                    <div class="checkout--subTotal">
+                        <p class="checkout--subTotal_label">subtotal</p>
+                        <p class="checkout--subTotal__price"></p>
+                    </div>
+                    <div class="checkout--ShippingCost">
+                        <p class="checkout--ShippingCost__label">shipping cost</p>
+                        <p class="checkout--ShippingCost__price">$12.00</p>
+                    </div>
+                    <div class="checkout--total">
+                        <p class="checkout--total__label">total cost</p>
+                        <p class="checkout--total__price"></p>
+                    </div>
+
+                    <div class="checkout--buttonWraper">
+                        <form method="POST">
+                            <button formaction="/verifyOrder/orderAll"
+                                class="checkout--buttonWraper__btn">checkout</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <!--checkout-->
+        </form>
     </div>
 </div>
 

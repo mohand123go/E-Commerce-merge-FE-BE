@@ -75,39 +75,42 @@
               </div>
               <div class="contentBox">
                 <h4><%= product.name %></h4>
-                <div class="size">
-                  <h4>Size :</h4>
-                  <select>
-                    <option>39</option>
-                    <option>40</option>
-                    <option>41</option>
-                    <option>43</option>
-                    <option>44</option>
-                    <option>45</option>
-                    <option>46</option>
-                    <option>47</option>
-                    <option>48</option>
-                  </select>
-                </div>
-                <div class="color">
-                  <h4>color :</h4>
-                  <label class="radio-btn-ctn">
-                    <input type="radio" checked="checked" name="radio">
-                    <span class="checkmark" style="background-color: <%= product.first_color %> "></span>
-                  </label>
-                  <label class="radio-btn-ctn">
-                    <input type="radio" name="radio">
-                    <span class="checkmark" style="background-color: <%= product.second_color %> "></span>
-                  </label>
-                  <label class="radio-btn-ctn">
-                    <input type="radio" name="radio">
-                    <span class="checkmark" style="background-color: <%= product.third_color %> "></span>
-                  </label>
-
-                </div>
-
 
                 <form action="/cart" method="POST">
+                  <div class="size">
+                    <h4>Size :</h4>
+                    <select>
+                      <option>39</option>
+                      <option>40</option>
+                      <option>41</option>
+                      <option>43</option>
+                      <option>44</option>
+                      <option>45</option>
+                      <option>46</option>
+                      <option>47</option>
+                      <option>48</option>
+                    </select>
+                  </div>
+
+                  <div class="color">
+                    <h4>color :</h4>
+                    <label class="radio-btn-ctn">
+                      <input type="radio" checked="checked" name="color" value="<%=product.first_color %>">
+                      <span class="checkmark" style="background-color: <%= product.first_color %> "></span>
+                    </label>
+                    <label class="radio-btn-ctn">
+                      <input type="radio" name="color" value=" <%=product.second_color %>">
+                      <span class="checkmark" style="background-color: <%= product.second_color %> "></span>
+                    </label>
+                    <label class="radio-btn-ctn">
+                      <input type="radio" name="color" value="<%=product.third_color %>">
+                      <span class="checkmark" style="background-color: <%= product.third_color %> "></span>
+                    </label>
+
+                  </div>
+
+
+
                   <input type="hidden" name="name" value="<%= product.name %>">
                   <input type="hidden" name="price" value="<%= product.price %>">
                   <input type="hidden" name="productId" value="<%= product._id %>">
