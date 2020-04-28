@@ -3,23 +3,19 @@ const validationResult = require('express-validator').validationResult
 const cartModel = require('../models/cart.model')
 
 exports.postOrder = (req, res, next) => {
-    ordersModel.addNewOrder({
-        name: req.body.name,
-        price: req.body.price,
-        amount: req.body.amount,
-        address: req.body.address,
-        status: 'pending',
-        productTimestamp: Date.now(),
-        productId: req.body.productId,
-        userId: req.session.userId,
+    cartModel.getItemByCartId(req.body.cartId).then((item) => {
 
-    }).then(() => {
-        res.redirect('/orders')
+        let buyerInfo = req.body
 
-    }).catch(erro => {
-        console.log(erro)
+        ordersModel.addNewOrder(buyerInfo, item).then(() => {
+
+
+        }).catch(erro => {
+            console.log(erro, 'postOrder')
+        })
+        next()
+
     })
-    next()
 }
 
 
@@ -28,7 +24,7 @@ exports.deleteCart = (req, res, next) => {
     cartModel.deleteItem(req.body.cartId).then(() => {
 
     }).catch((erro) => {
-        console.log(erro)
+        console.log(erro, 'deleteCart')
     })
 }
 
@@ -44,7 +40,7 @@ exports.getOrder = (req, res, next) => {
             pageTitle: 'Orders'
 
         })
-    }).catch(erro => console.log(erro))
+    }).catch(erro => console.log(erro, 'getOrder'))
 }
 
 exports.cancelOrder = (req, res, next) => {
@@ -65,35 +61,28 @@ exports.postOrderCancelAll = (req, res, next) => {
 }
 
 
-exports.postOrderAllCart = async (req, res, next) => {
 
-    await ordersModel.findAllOrder().then((All_Order_In_The_Cart) => {
 
-        ordersModel.orderAllOrder(All_Order_In_The_Cart, req.body.address)
-
-    }).catch(erro => {
-        console.log(erro)
-    })
-
-    next()
-
-}
 
 exports.postOrderAllCart = (req, res, next) => {
 
     ordersModel.findAllOrder().then((All_Order_In_The_Cart) => {
 
-        return ordersModel.orderAllOrder(All_Order_In_The_Cart, req.body.address)
+        let buyerInfo = req.body
+        ordersModel.addNewOrder(buyerInfo, All_Order_In_The_Cart).then(() => {
 
-    }).then(() => {
+
+        }).catch(erro => {
+            console.log(erro, 'postOrderAllCart')
+        })
         next()
-    }).catch(erro => {
-        next(erro)
+
     })
 
 
 
 }
+
 
 
 

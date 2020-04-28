@@ -10,7 +10,8 @@ const cartSchema = mongoose.Schema({
     timestamp: Number,
     image_name: String,
     color: String,
-    size: String
+    size: String,
+
 })
 
 const cartItem = mongoose.model('cart', cartSchema)
@@ -83,6 +84,24 @@ exports.editItem = (id, newdata) => {
             })
     })
 }
+
+exports.getItemByCartId = (id) => {
+    return new Promise((resolve, reject) => {
+
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() =>
+            cartItem.findOne({ _id: id })
+
+        ).then((items) => {
+            mongoose.disconnect()
+            resolve(items)
+        })
+            .catch(err => {
+                mongoose.disconnect()
+                reject(err)
+            })
+    })
+}
+
 
 exports.deleteItem = (id) => {
     return new Promise((resolve, reject) => {
