@@ -1,19 +1,60 @@
 <%- include('parts/header') %>
 <%- include('parts/navbar') %>
-<div class="container text-center">
-    <form method="POST">
-
-        <input type="hidden" name="cartId" value="<%= cartId %>">
-
-        <input type="text" name="firstName" placeholder="firstName">
-        <input type="text" name="lastName" placeholder="lastName">
-        <input type="text" name="addressLine1" placeholder="firstName">
-        <input type="text" name="addressLine2" placeholder="firstName">
-        <input type="text" name="city" placeholder="firstName">
-        <input type="text" name="mobileNumber" placeholder="firstName">
-        <input type="submit" value="Order" formaction="/orders/orderAll">
 
 
-    </form>
-</div>
+<!--Start .shipTo -->
+
+
+
+<Div class="shipTo">
+    <div class="container">
+        <div class="shiptTO--textWraper">
+            <h2 class="shiptTO--textWraper__title">ship to</h2>
+            <div class="shiptTO--textWraper__required"> <span class="form--inputWraper__labelStar">* </span>
+                Required
+            </div>
+        </div>
+        <form method="POST">
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">first name <span
+                        class="form--inputWraper__labelStar">*</span></label>
+                <input class="form--inputWraper__input" name="firstName" type="text" placeholder="Demo">
+            </div>
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">last name <span
+                        class="form--inputWraper__labelStar">*</span></label>
+                <input class="form--inputWraper__input" name="lastName" type="text" placeholder="preview">
+            </div>
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">address line 1 <span
+                        class="form--inputWraper__labelStar">*</span></label>
+                <input class="form--inputWraper__input" name="addressLine1" type="text" placeholder="xx Ann ave">
+            </div>
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">address line 2 <span
+                        class="form--inputWraper__labelStar"></span></label>
+                <input class="form--inputWraper__input" name="addressLine2" type="text" placeholder="">
+            </div>
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">city <span class="form--inputWraper__labelStar">*</span></label>
+                <input class="form--inputWraper__input" name="city" type="text" placeholder="Cairo">
+            </div>
+            <div class="form--inputWraper">
+                <label class="form--inputWraper__label">mobile number <span
+                        class="form--inputWraper__labelStar">*</span></label>
+                <input class="form--inputWraper__input " name="mobileNumber" type="text" placeholder="01******5">
+            </div>
+
+            <div class="form--submitWraper">
+                <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit" value="Next">
+            </div>
+
+        </form>
+    </div>
+
+
+</Div>
+<!--end .shipTo -->
+
+
 <%- include('parts/footer') %>

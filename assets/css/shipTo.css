@@ -1,0 +1,68 @@
+
+.shipTo{
+    padding-top: 50px;
+}
+.shipTo .shiptTO--textWraper{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+ 
+}
+
+.shipTo .shiptTO--textWraper__title{
+    font-size: 2rem;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.shipTo .shiptTO--textWraper__required{
+   display: flex;
+   align-items: center;
+   padding: 5px;
+   margin-bottom: 8px;
+}
+
+.shipTo .form--inputWraper__label{
+    display: block;
+    text-transform: capitalize;
+   
+}
+
+.shipTo .form--inputWraper__input{
+    display: block;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    min-width: 80%;
+}
+
+.shipTo .form--inputWraper__input:focus{
+    box-shadow: 0px 0px 3px rgb(226, 147, 0);
+    outline: rgb(226, 147, 0);
+}
+
+.shipTo .form--inputWraper__labelStar{
+    color: red;
+    display: inline-block
+}
+
+.shipTo .form--inputWraper{
+    margin: 15px;
+}
+
+.shipTo .form--submitWraper{
+    text-align: right;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.shipTo .form--submitWraper__submitBtn{
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(226, 147, 0);
+    border: none;
+    letter-spacing: 1.5px;
+}
