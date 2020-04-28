@@ -56,6 +56,7 @@ app.get('/not-admin', (req, res, next) => {
   })
 })
 
+/*
 app.get('/error', (req, res, next) => {
   res.status(500)
   res.render('error.ejs', {
@@ -65,7 +66,7 @@ app.get('/error', (req, res, next) => {
 
 
   })
-})
+}) 
 
 app.use((error, req, res, next) => {
   res.redirect('/error')
@@ -80,7 +81,7 @@ app.use((req, res, next) => {
     pageTitle: 'page not found'
 
   })
-})
+}) */
 
 app.listen(port, () => {
   console.log("server now listen to port 3000");

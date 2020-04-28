@@ -38,7 +38,7 @@
                 <div class="item--colorWraper">
                     <span class="item--colorWraper__productColor">color : </span>
                     <span class="item--colorWraper__productColorCricle"
-                        style="background-color: <%=items[i].color%>"></span>
+                        style="background-color: <%= items[i].color%>"></span>
 
                 </div>
                 <!--.item--colorWraper -->
@@ -69,12 +69,8 @@
 
 
 
-                    <input type="hidden" name='name' value="<%= items[i].name %>">
-                    <input type="hidden" name='price' value="<%= items[i].price %>">
+
                     <input type="hidden" name='cartId' value="<%= items[i]._id %>">
-                    <input type="hidden" name='counter' value="<%= i %>">
-                    <input type="hidden" name='userId' value="<%= items[i].userId %>">
-                    <input type="hidden" name='productId' value="<%= items[i].productId %>">
 
 
 
@@ -101,8 +97,8 @@
 
                 <div class="item--deleteWraper">
 
-                    <button class=" btn-order item--deleteWraper__btn " name="Order"
-                        formaction="/verifyOrder">order</button>
+                    <input type="submit" name="Order" formaction="/verifyOrder"
+                        class="btn-order item--deleteWraper__btn" value="order">
 
                 </div>
 

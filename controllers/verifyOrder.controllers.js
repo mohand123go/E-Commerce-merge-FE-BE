@@ -8,12 +8,8 @@ exports.postVerifyOrder = (req, res, next) => {
         res.render('verifyOrder', {
             isUser: true,
             orderItem: {
-                name: req.body.name,
-                price: req.body.price,
-                amount: req.body.amount,
-                userId: req.body.userId,
-                productId: req.body.productId,
-                submit: req.body.submit,
+                cartId: req.body.cartId,
+                order: req.body.Order,
 
 
             },

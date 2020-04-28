@@ -22,7 +22,7 @@ exports.postOrder = (req, res, next) => {
 
 exports.deleteCart = (req, res, next) => {
     cartModel.deleteItem(req.body.cartId).then(() => {
-
+        res.redirect('/orders')
     }).catch((erro) => {
         console.log(erro, 'deleteCart')
     })
