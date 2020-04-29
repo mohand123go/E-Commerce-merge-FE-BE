@@ -5,7 +5,7 @@
 <!--Start .shipTo -->
 
 
-<% console.log(orderInfo)%>
+
 <Div class="shipTo">
     <div class="container">
         <div class="shiptTO--textWraper">
@@ -57,21 +57,27 @@
 
 
             <!-- end orderInfor input-->
-
-            <%if(orderItem.order == "order") { %>
-            <input type="hidden" name="cartId" value="<%=orderItem.cartId %>">
+            <!-- order button funcation
+            
+      
+                 <%# if (orderItem.order == "order") { %>
+      
+            <input type="hidden" name="cartId" value="<%# =orderItem.cartId %>">
             <div class="form--submitWraper">
                 <input formaction="/orders" class="form--submitWraper__submitBtn" type="submit" value="Next">
             </div>
 
-            <%}else{%>
+            <%# }else{%>   
 
+                -->
+
+            <%# } %>
 
             <div class="form--submitWraper">
                 <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit" value="Next">
             </div>
 
-            <% } %>
+
 
 
         </form>

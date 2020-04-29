@@ -58,7 +58,7 @@ exports.addNewOrder = (orderInfo, buyerInfo, data) => {
 
 
             } else {
-                console.log('buyerInfo', buyerInfo, 'data', data)
+
                 let x = {
                     orderInfo,
                     buyerInfo,

@@ -10,10 +10,11 @@ router.post('/cancel', bodyParser.urlencoded({ extended: true }), authGuards.isA
 router.post('/cancelAll', bodyParser.urlencoded({ extended: true }), authGuards.isAuth, ordersController.postOrderCancelAll)
 
 
+/* order button funcation
 router.post('/', authGuards.isAuth,
     bodyParser.urlencoded({ extended: true }),
     ordersController.postOrder, ordersController.deleteCart)
-
+*/
 
 router.post('/orderAll', authGuards.isAuth,
     bodyParser.urlencoded({ extended: true }),

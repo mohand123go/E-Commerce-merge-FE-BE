@@ -7,14 +7,16 @@ exports.postVerifyOrder = (req, res, next) => {
     if (validationResult(req).isEmpty()) {
         res.render('verifyOrder', {
             isUser: true,
+            /* order button funcation
             orderItem: {
                 cartId: req.body.cartId,
                 /*order here a value for submit button to know 
-                that the value is comming to submit one product in the cart */
+                that the value is comming to submit one product in the cart  
                 order: req.body.Order,
 
             },
-            /* the orderInfo Containing a information about the order it self */
+            
+             the orderInfo Containing a information about the order it self */
             orderInfo: {
                 subTotal: req.body.cartSubTotal,
                 ShippingCost: req.body.CartShippingCost,

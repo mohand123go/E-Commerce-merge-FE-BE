@@ -2,12 +2,30 @@ const ordersModel = require('../models/orders.model')
 const validationResult = require('express-validator').validationResult
 const cartModel = require('../models/cart.model')
 
+/* order button funcation
 exports.postOrder = (req, res, next) => {
     cartModel.getItemByCartId(req.body.cartId).then((item) => {
 
-        let buyerInfo = req.body
 
-        ordersModel.addNewOrder(buyerInfo, item).then(() => {
+
+
+        let buyerInfo = {
+            firstName: req.body.firstName,
+            lastName: req.body.firstName,
+            addressLine1: req.body.addressLine1,
+            addressLine2: req.body.addressLine2,
+            city: req.body.firstName.city,
+            mobileNumber: req.body.mobileNumber
+        }
+        let orderInfor = {
+            subTotal: req.body.subTotal,
+            ShippingCost: req.body.ShippingCost,
+            CartTotal: req.body.CartTotal,
+            CartProductAmount: req.body.CartProductAmount,
+        }
+
+
+        ordersModel.addNewOrder(orderInfor, buyerInfo, item).then(() => {
 
 
         }).catch(erro => {
@@ -19,7 +37,7 @@ exports.postOrder = (req, res, next) => {
 }
 
 
-
+*/
 exports.deleteCart = (req, res, next) => {
     cartModel.deleteItem(req.body.cartId).then(() => {
         res.redirect('/orders')

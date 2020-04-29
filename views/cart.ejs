@@ -65,6 +65,7 @@
 
 
 
+
                 <div class="item--deleteWraper-lgSreen">
 
 
@@ -73,42 +74,20 @@
                     <input type="hidden" name='cartId' value="<%= items[i]._id %>">
 
 
-
                     <button formaction="/cart/delete"
                         class=" btn-delete item--deleteWraper__btn item--deleteWraper__deleteButton "><i
                             class="far fa-trash-alt"></i></button>
+
                     <input class=" btn-save item--deleteWraper__btn" type="submit" name="submit" class="btn btn-success"
                         value="Save" formaction="/cart/save">
 
-
+                    <!-- order button funcation
                     <input type="submit" name="Order" formaction="/verifyOrder"
                         class="btn-order item--deleteWraper__btn" value="order">
 
-
-                </div>
-
-
-                <div class="item--offset item--offset1 ">
+                    -->
 
 
-                    <button class="btn-save item--deleteWraper__btn" formaction="/cart/save" name="submit">save</button>
-
-                </div>
-
-                <div class="item--deleteWraper">
-
-                    <input type="submit" name="Order" formaction="/verifyOrder"
-                        class="btn-order item--deleteWraper__btn" value="order">
-
-                </div>
-
-                <!--.item--deleteWraper -->
-
-                <!--.item--deleteWraper -->
-                <div class="item--offset item--offset2 ">
-                    <button formaction="/cart/delete"
-                        class=" btn-delete item--deleteWraper__btn item--deleteWraper__deleteButton"><i
-                            class="far fa-trash-alt"></i></button>
 
                 </div>
 
@@ -116,51 +95,49 @@
 
                 <!--.item--deleteWraper -->
 
-                <!--.item--deleteWraper -->
 
 
 
-
-
-
+            </div>
         </form>
-    </div>
-    <!--emd .item -->
-    <% } %>
 
-    <% } %>
 
-    <!--start checkout-->
-    <div class="checkout">
-        <div class="container-fluid">
-            <div class="checkout--subTotal">
-                <p class="checkout--subTotal_label">subtotal</p>
-                <p class="checkout--subTotal__price"></p>
-            </div>
-            <div class="checkout--ShippingCost">
-                <p class="checkout--ShippingCost__label">shipping cost</p>
-                <p class="checkout--ShippingCost__price">$12.00</p>
-            </div>
-            <div class="checkout--total">
-                <p class="checkout--total__label">total cost</p>
-                <p class="checkout--total__price"></p>
-            </div>
+        <!--emd .item -->
+        <% } %>
 
-            <div class="checkout--buttonWraper">
-                <form method="POST">
-                    <input type="hidden" name="cartSubTotal" value="">
-                    <input type="hidden" name="CartShippingCost" value="">
-                    <input type="hidden" name="CartTotal" value="">
-                    <input type="hidden" name="CartProductAmount" value="">
-                    <button formaction="/verifyOrder/orderAll" class="checkout--buttonWraper__btn">checkout</button>
-                </form>
-            </div>
+        <% } %>
 
+        <!--start checkout-->
+        <div class="checkout">
+            <div class="container-fluid">
+                <div class="checkout--subTotal">
+                    <p class="checkout--subTotal_label">subtotal</p>
+                    <p class="checkout--subTotal__price"></p>
+                </div>
+                <div class="checkout--ShippingCost">
+                    <p class="checkout--ShippingCost__label">shipping cost</p>
+                    <p class="checkout--ShippingCost__price">$12.00</p>
+                </div>
+                <div class="checkout--total">
+                    <p class="checkout--total__label">total cost</p>
+                    <p class="checkout--total__price"></p>
+                </div>
+
+                <div class="checkout--buttonWraper">
+                    <form method="POST">
+                        <input type="hidden" name="cartSubTotal" value="">
+                        <input type="hidden" name="CartShippingCost" value="">
+                        <input type="hidden" name="CartTotal" value="">
+                        <input type="hidden" name="CartProductAmount" value="">
+                        <button formaction="/verifyOrder/orderAll" class="checkout--buttonWraper__btn">checkout</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <!--checkout-->
+        <!--checkout-->
 
-</div>
+    </div>
 </div>
 
 
