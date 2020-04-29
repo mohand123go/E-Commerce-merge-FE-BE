@@ -148,6 +148,10 @@
 
             <div class="checkout--buttonWraper">
                 <form method="POST">
+                    <input type="hidden" name="cartSubTotal" value="">
+                    <input type="hidden" name="CartShippingCost" value="">
+                    <input type="hidden" name="CartTotal" value="">
+                    <input type="hidden" name="CartProductAmount" value="">
                     <button formaction="/verifyOrder/orderAll" class="checkout--buttonWraper__btn">checkout</button>
                 </form>
             </div>

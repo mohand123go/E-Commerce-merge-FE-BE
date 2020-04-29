@@ -68,8 +68,22 @@ exports.postOrderAllCart = (req, res, next) => {
 
     ordersModel.findAllOrder().then((All_Order_In_The_Cart) => {
 
-        let buyerInfo = req.body
-        ordersModel.addNewOrder(buyerInfo, All_Order_In_The_Cart).then(() => {
+        let buyerInfo = {
+            firstName: req.body.firstName,
+            lastName: req.body.firstName,
+            addressLine1: req.body.addressLine1,
+            addressLine2: req.body.addressLine2,
+            city: req.body.firstName.city,
+            mobileNumber: req.body.mobileNumber
+        }
+        let orderInfor = {
+            subTotal: req.body.subTotal,
+            ShippingCost: req.body.ShippingCost,
+            CartTotal: req.body.CartTotal,
+            CartProductAmount: req.body.CartProductAmount,
+        }
+
+        ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {
 
 
         }).catch(erro => {

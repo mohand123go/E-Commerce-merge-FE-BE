@@ -5,7 +5,7 @@
 <!--Start .shipTo -->
 
 
-
+<% console.log(orderInfo)%>
 <Div class="shipTo">
     <div class="container">
         <div class="shiptTO--textWraper">
@@ -45,6 +45,18 @@
                 <input class="form--inputWraper__input " name="mobileNumber" type="text" placeholder="01******5">
             </div>
 
+
+            <!-- start orderInfor input-->
+            <input type="hidden" name="subTotal" value="<%= orderInfo.subTotal %>">
+
+            <input type="hidden" name="ShippingCost" value="<%= orderInfo.ShippingCost %>">
+
+            <input type="hidden" name="CartTotal" value="<%= orderInfo.CartTotal %>">
+
+            <input type="hidden" name="CartProductAmount" value="<%= orderInfo.CartProductAmount %>">
+
+
+            <!-- end orderInfor input-->
 
             <%if(orderItem.order == "order") { %>
             <input type="hidden" name="cartId" value="<%=orderItem.cartId %>">

@@ -4,13 +4,27 @@ const DB_URl = 'mongodb://localhost:27017/online-shop'
 cartModel = require('./cart.model')
 
 const orderSchema = mongoose.Schema({
+    orderInfo: {
+
+        subTotal: Number,
+        ShippingCost: Number,
+        CartTotal: Number,
+        CartProductAmount: Number,
+        city: Number,
+        status: {
+            type: String,
+            default: 'on process'
+        }
+
+    },
     buyerInfo: {
         firstName: String,
         lastName: String,
         addressLine1: String,
         addressLine2: String,
         city: String,
-        mobileNumber: Number
+        mobileNumber: Number,
+
     },
     item: [{
         _id: String,
@@ -23,16 +37,14 @@ const orderSchema = mongoose.Schema({
         color: String,
         size: String,
         productTimestamp: Number,
-        status: {
-            type: String,
-            default: 'on process'
-        }
+
+
     }]
 
 })
 const orderItems = mongoose.model('order', orderSchema)
 
-exports.addNewOrder = (buyerInfo, data) => {
+exports.addNewOrder = (orderInfo, buyerInfo, data) => {
 
     return new Promise((resolve, reject) => {
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
@@ -48,6 +60,7 @@ exports.addNewOrder = (buyerInfo, data) => {
             } else {
                 console.log('buyerInfo', buyerInfo, 'data', data)
                 let x = {
+                    orderInfo,
                     buyerInfo,
                     item: data
                 }
