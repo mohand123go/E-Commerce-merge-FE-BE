@@ -99,6 +99,7 @@ exports.postOrderAllCart = (req, res, next) => {
             ShippingCost: req.body.ShippingCost,
             CartTotal: req.body.CartTotal,
             CartProductAmount: req.body.CartProductAmount,
+            date: new Date()
         }
 
         ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {

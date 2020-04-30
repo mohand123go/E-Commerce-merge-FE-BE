@@ -5,7 +5,6 @@ cartModel = require('./cart.model')
 
 const orderSchema = mongoose.Schema({
     orderInfo: {
-
         subTotal: Number,
         ShippingCost: Number,
         CartTotal: Number,
@@ -14,7 +13,8 @@ const orderSchema = mongoose.Schema({
         status: {
             type: String,
             default: 'on process'
-        }
+        },
+        date: Date
 
     },
     buyerInfo: {
@@ -86,9 +86,10 @@ exports.addNewOrder = (orderInfo, buyerInfo, data) => {
 exports.getItemByUser = (userId) => {
     return new Promise((resolve, reject) => {
 
-        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => orderItems.find({ userId: userId }, {}, { sort: { timestamp: -1 } })
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => orderItems.find({ "item.userId": userId }, {}, { sort: { timestamp: -1 } })
 
         ).then((order) => {
+            console.log(order)
             mongoose.disconnect()
             resolve(order)
         }).catch(erro => {

@@ -5,6 +5,8 @@ exports.postVerifyOrder = (req, res, next) => {
 
 
     if (validationResult(req).isEmpty()) {
+
+
         res.render('verifyOrder', {
             isUser: true,
             /* order button funcation
