@@ -100,6 +100,22 @@ exports.getItemByUser = (userId) => {
     })
 }
 
+/*orderInfo */
+exports.getOrderByUserIdAndCartId = (CartId, userId) => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+
+            orderItems.find({ "item.userId": userId, _id: CartId }).then((orderInfo) => {
+
+                resolve(orderInfo)
+                mongoose.disconnect()
+            }).catch((erro) => {
+                reject(erro)
+                mongoose.disconnect()
+            })
+        })
+    })
+}
 
 exports.cancelOrder = (userId, cartId) => {
     return new Promise((resolve, reject) => {

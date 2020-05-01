@@ -16,6 +16,7 @@ const authRouter = require('./routes/auth.router')
 const orderRouter = require('./routes/orders.router')
 const verifyOrder = require('./routes/verifyOrder.router')
 const adminRouter = require('./routes/admin.router')
+const orderInfo = require('./routes/orderInfo.router')
 
 app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "images")));
@@ -44,6 +45,7 @@ app.use('/cart', cartRouter)
 app.use('/orders', orderRouter)
 app.use('/verifyOrder', verifyOrder)
 app.use('/admin', adminRouter)
+app.use('/order-info', orderInfo)
 
 app.get('/not-admin', (req, res, next) => {
   res.status(403)

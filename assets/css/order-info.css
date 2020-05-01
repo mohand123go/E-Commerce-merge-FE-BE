@@ -1,0 +1,262 @@
+#orderInfoPageId{
+    background-color: #F7F7F9;
+   
+}
+
+.orderInfoPage {
+    margin-top: 50px ;
+}
+
+.orderInfoPage .all-order-info , 
+.orderInfoPage .order-products-wraper{
+    background-color: white;
+   
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(226, 229, 241);
+    border-image: initial;
+    margin: 0px 0px 40px;
+    padding: 35px 30px;
+
+}
+
+.orderInfoPage .orderProgressBar{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.orderInfoPage .orderProgressBar{
+    display: flex;  
+    background-color:#F7F7F9;
+    font-size: 1.2rem;
+    
+    align-items: center;
+    background-color: rgb(247, 247, 250);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
+    line-height: 1;
+    border-radius: 70px;
+    overflow: hidden;
+}
+
+
+.orderInfoPage .on-process,
+.orderInfoPage .accepted,
+.orderInfoPage .in-delivery,
+.orderInfoPage .delivered
+{
+    padding: 5px 0;
+    text-align: center;
+    
+    width: 25%;
+}
+
+.orderInfoPage .activeProgress{
+    background-color: #38AE04;
+    color: white;
+}
+.orderInfoPage .orderInfo-wraper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.orderInfoPage .order-bill ,
+.orderInfoPage .order-total-price-wraper{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.orderInfoPage .order-product{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+    position: relative;
+    margin-bottom: 25px;
+
+}
+
+.orderInfoPage .order-product::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -32px;
+    width: 100%;
+    height: 0.5px;
+    background-color: #c1afaf;
+  
+}
+
+.orderInfoPage h3{
+    font-weight: bolder;
+    font-size:1.05rem;
+    text-transform: capitalize;
+}
+
+.orderInfoPage p,
+.orderInfoPage span{
+  
+  color: rgb(156, 156, 156);
+  font-weight: 550;
+  letter-spacing: 0.5px;
+
+  
+}
+
+.orderInfoPage .order-total-price{
+    color: black;
+    font-size: 1.05;
+    letter-spacing: 1px;
+}
+.orderInfoPage .order-total-pricelabel{
+    color: black;
+    font-size: 1.05;
+    text-transform: capitalize;
+}
+
+.orderInfoPage .order-product--color{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+.orderInfoPage .order-product .product-price{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.product-info-wraper h4{
+
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+
+@media (max-width:991px){
+
+    .orderInfoPage .order-product::after{
+      
+        width: 110%;
+        bottom: -5px;
+        left: -32px;
+        width: 100%;
+    
+      
+    }
+    
+    .orderInfoPage   .orderInfo-wraper{
+        /*
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        */
+        display: flex;
+        flex-direction: column-reverse;
+    } 
+    .orderInfoPage  .order-product{
+    display: grid;
+    grid-template-columns: auto;
+   grid-template-areas: ' img product-price'
+            'product-info-wraper product-spec';
+   }
+   .orderInfoPage .order-product img{
+       grid-area: img ;
+   }
+   .orderInfoPage .order-product .product-price{
+    grid-area: product-price ;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
+    flex-direction: column;
+}
+
+.orderInfoPage .order-product .product-info-wraper{
+    grid-area: product-info-wraper;
+}
+
+.orderInfoPage .order-product  .product-spec
+{
+    grid-area: product-spec;
+    text-align: left;
+}
+
+.orderInfoPage .on-process,
+.orderInfoPage .accepted,
+.orderInfoPage .in-delivery,
+.orderInfoPage .delivered
+{
+    padding: 5px 0;
+    text-align: center;
+    font-size: 16px;
+    width: 25%;
+}
+
+.orderInfoPage .all-order-info, .order-products-wraper {
+ 
+    padding: 35px 20px;
+}
+
+}
+
+@media(max-width:510px){
+    .orderInfoPage    .on-process,
+    .orderInfoPage  .accepted,
+    .orderInfoPage  .in-delivery,
+    .orderInfoPage  .delivered   {
+                padding: 5px 0;
+                text-align: center;
+                font-size: 14px;
+
+      
+}
+
+.orderInfoPage .all-order-info, .order-products-wraper {
+ 
+    padding: 35px 15px;
+}
+}
+
+@media(max-width:441px){
+    .orderInfoPage  .on-process,
+    .orderInfoPage  .accepted,
+    .orderInfoPage  .in-delivery,
+    .orderInfoPage .delivered   {
+        padding: 5px 0;
+        text-align: center;
+        font-size: 13px;
+
+      
+}
+.orderInfoPage .all-order-info, .order-products-wraper {
+ 
+    padding: 35px 10px;
+}
+.orderInfoPage  .container{
+    padding-left: 10px ;
+    padding-right: 10px;
+    }
+}
+
+
+@media(max-width:394px){
+    .orderInfoPage   .on-process,
+    .orderInfoPage   .accepted,
+    .orderInfoPage  .in-delivery,
+    .orderInfoPage  .delivered   {
+        padding: 5px 0;
+        text-align: center;
+        font-size: 10.5px;
+
+      
+}
+.orderInfoPage .all-order-info, .order-products-wraper {
+ 
+    padding: 35px 8px;
+}
+.orderInfoPage  .container{
+padding-left: 6px;
+padding-right: 6px;
+}
+}
+
+
