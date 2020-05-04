@@ -285,3 +285,28 @@ exports.getItemWithFilter = (statusFilter) => {
 
 
 }
+
+
+/* new admin panal */
+
+/*get all order in the order doc for the admin in the manger order page */
+
+exports.getAllOrderToAdmin = () => {
+
+    return new Promise((resolve, reject) => {
+
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+            return orderItems.find()
+
+        }).then((orders) => {
+
+            mongoose.disconnect();
+
+            resolve(orders)
+        }).catch((erro) => {
+            mongoose.disconnect()
+            reject(erro)
+        })
+    })
+
+}

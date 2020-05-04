@@ -16,6 +16,7 @@ exports.getAdd = (req, res, next) => {
 }
 
 // TEST 
+/*
 exports.getOrdersToManger = (req, res, next) => {
 
     let statusfilter = req.query.statusfilter
@@ -63,6 +64,26 @@ exports.getOrdersToManger = (req, res, next) => {
     })
 }
 
+*/
+
+
+exports.getOrdersToManger = (req, res, next) => {
+
+    ordersModel.getAllOrderToAdmin().then((orders) => {
+
+        res.render("manges-orders", {
+            orders: orders,
+            isUser: req.session.userId,
+            isAdmin: req.session.isAdmin,
+            validationErrors: req.flash('validationErrors')[0],
+            searchResult: req.flash('searchResult')[0],
+            pageTitle: 'Manges Orders'
+        })
+    }).catch(erro => {
+        next(erro)
+    })
+
+}
 
 
 exports.searchByUserEmail = (req, res, next) => {
