@@ -93,12 +93,12 @@ function gethi(e) {
 
                     <div class="buyer-info">
                         <span>Address 2</span>
-                        <span>${orders[j].buyerInfo.addressLine1}</span>
+                        <span>${orders[j].buyerInfo.addressLine2}</span>
                     </div>
 
                     <div class="buyer-info">
                         <span>City</span>
-                        <span>${orders[j].buyerInfo.addressLine2}</span>
+                        <span>${orders[j].buyerInfo.city}</span>
                     </div>
 
                     <div class="buyer-info">

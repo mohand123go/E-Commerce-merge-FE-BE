@@ -17,6 +17,23 @@
 <!--Start body -->
 
 <body id="bo">
+    <%
+  
+         let orders = '';
+         
+    if(searchResult.length > 0  && searchResult[0] != -1){
+        
+
+  orders = searchResult 
+   
+
+    }else{ 
+     orders =  AllOrders 
+    
+
+    } %>
+
+
     <% if(orders.length == 0){%>
     <p class="alert alert-danger">there no Order yet</p>
     <% } else { %>
@@ -24,19 +41,20 @@
     <div class="mange-order-page">
         <div class="container">
             <div class="mange-order-page__shearch-bar">
-                <form>
+                <form method="POST">
 
-                    <input class="shearch-bar--shearch-input" type="search" placeholder="Srach">
+                    <input class="shearch-bar--shearch-input" type="search" placeholder="Srach" name="mangeOrderSearch">
 
                     <select>
                         <option>on process</option>
                     </select>
 
-
+                    <input type="submit" formaction="/admin/orders/search">
                 </form>
             </div> <!-- .mange-order-page__shearch-bar -->
 
             <div class="mange-order-system-wraper">
+
 
 
 
@@ -69,6 +87,8 @@
 
                     </div> <!-- .order-Abstract-->
                     <% } %>
+
+
                 </div> <!--  .order-bar-->
 
 

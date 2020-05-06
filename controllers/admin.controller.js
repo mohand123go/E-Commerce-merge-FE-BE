@@ -71,12 +71,13 @@ exports.getOrdersToManger = (req, res, next) => {
 
     ordersModel.getAllOrderToAdmin().then((orders) => {
 
+
         res.render("manges-orders", {
-            orders: orders,
+            AllOrders: orders,
             isUser: req.session.userId,
             isAdmin: req.session.isAdmin,
-            validationErrors: req.flash('validationErrors')[0],
-            searchResult: req.flash('searchResult')[0],
+            validationErrors: req.flash('validationErrors'),
+            searchResult: req.flash('soo'),
             pageTitle: 'Manges Orders'
         })
     }).catch(erro => {
@@ -88,6 +89,7 @@ exports.getOrdersToManger = (req, res, next) => {
 
 exports.searchByUserEmail = (req, res, next) => {
     if (validationResult(req).isEmpty()) {
+
         req.flash('searchResult', req.body.search)
         res.redirect('/admin/orders')
 
@@ -96,6 +98,19 @@ exports.searchByUserEmail = (req, res, next) => {
         req.flash('validationErrors', validationResult(req).array())
         res.redirect('/admin/orders')
     }
+}
+
+exports.postSearch = (req, res, next) => {
+
+    ordersModel.searchByUserinfo(req.body.mangeOrderSearch).then((searchByUserinfoReuslt) => {
+
+        if (searchByUserinfoReuslt.length == 0) {
+            searchByUserinfoReuslt.push(-1)
+        }
+        req.flash('soo', searchByUserinfoReuslt)
+        res.redirect('/admin/orders')
+
+    })
 }
 
 exports.postAdd = (req, res, next) => {

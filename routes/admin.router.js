@@ -29,11 +29,11 @@ router.post('/add', adminGuard.isAdmin, multer({
     adminController.postAdd)
 
 
-
+/* check('search').not().isEmpty().withMessage('E-mail is rquire').isEmail().withMessage('E-mail is incorrect') */
 router.get('/orders', adminGuard.isAdmin, adminController.getOrdersToManger)
 router.post('/orders/search', adminGuard.isAdmin, bodyParser.urlencoded({ extended: true }), authGuards.isAuth,
-    check('search').not().isEmpty().withMessage('E-mail is rquire').isEmail().withMessage('E-mail is incorrect'),
-    adminController.searchByUserEmail)
+   
+    adminController.postSearch)
 
 router.post('/orders/save', authGuards.isAuth, bodyParser.urlencoded({ extended: true }), adminController.postUpdateOrdersByManger)
 

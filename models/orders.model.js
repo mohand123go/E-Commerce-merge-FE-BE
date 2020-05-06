@@ -10,7 +10,7 @@ const orderSchema = mongoose.Schema({
         ShippingCost: Number,
         CartTotal: Number,
         CartProductAmount: Number,
-        city: Number,
+        city: String,
         status: {
             type: String,
             default: 'on process'
@@ -257,6 +257,64 @@ exports.cancelOrderByManger = (cartId) => {
         })
     })
 }
+
+exports.searchByUserinfo = (mangeOrderSearch) => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+            if (isNaN(Number(mangeOrderSearch))) {
+                const regex = new RegExp('.*' + mangeOrderSearch.toLowerCase().trim() + '.*')
+
+                return orderItems.find({
+                    $or: [
+
+                        { "buyerInfo.city": regex },
+                        { "buyerInfo.addressLine1": regex },
+                        { "buyerInfo.addressLine2": regex }
+
+
+
+                    ]
+                })
+            } else {
+                return orderItems.find({
+                    $or: [
+
+                        { "buyerInfo.mobileNumber": mangeOrderSearch },
+
+
+                    ]
+                })
+            }
+
+        }).then((mangeOrderSearchResult) => {
+
+            resolve(mangeOrderSearchResult)
+        }).catch(erro => {
+            reject(erro)
+        })
+    })
+}
+/*
+ if (isNaN(Number(mangeOrderSearch))) {
+
+            }
+
+exports.searchByUserinfo = (mangeOrderSearch) => {
+    console.log('123', mangeOrderSearch)
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+            orderItems.find(
+                {
+                    $or: [
+                        { "buyerInfo.city": mangeOrderSearch }
+                    ]
+                }).then((mangeOrderSearchResult) => {
+                    console.log(mangeOrderSearchResult)
+                })
+        })
+    })
+}
+ */
 
 
 exports.updateOrderByManger = async (cartId, stat) => {
