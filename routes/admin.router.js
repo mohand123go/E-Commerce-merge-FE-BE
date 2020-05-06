@@ -34,7 +34,10 @@ router.get('/orders', adminGuard.isAdmin, adminController.getOrdersToManger)
 router.post('/orders/search', adminGuard.isAdmin, bodyParser.urlencoded({ extended: true }), authGuards.isAuth,
     check('search').not().isEmpty().withMessage('E-mail is rquire').isEmail().withMessage('E-mail is incorrect'),
     adminController.searchByUserEmail)
+
 router.post('/orders/save', authGuards.isAuth, bodyParser.urlencoded({ extended: true }), adminController.postUpdateOrdersByManger)
+
+router.post('/orders/cancel', authGuards.isAuth, bodyParser.urlencoded({ extended: true }), adminController.postCanceltOrdersByManger)
 
 
 module.exports = router

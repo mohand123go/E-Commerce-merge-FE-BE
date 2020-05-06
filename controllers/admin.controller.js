@@ -126,9 +126,16 @@ exports.postAdd = (req, res, next) => {
     }
 }
 
+exports.postCanceltOrdersByManger = (req, res, next) => {
+    ordersModel.cancelOrderByManger(req.body.cartId).then(() => {
+        res.redirect('/admin/orders')
+    }).catch(error => {
+        next(error)
+    })
+}
+
 exports.postUpdateOrdersByManger = (req, res, next) => {
-    console.log('guc', req.body.cartId)
-    console.log('bb', req.body.editedStatus)
+
     ordersModel.updateOrderByManger(req.body.cartId, req.body.editedStatus).then(() => {
 
 

@@ -244,12 +244,24 @@ exports.getAllItem = () => {
 }
 
 
-
+exports.cancelOrderByManger = (cartId) => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+            return orderItems.deleteOne({ _id: cartId })
+        }).then(() => {
+            mongoose.disconnect()
+            resolve()
+        }).catch((erro) => {
+            mongoose.disconnect()
+            reject(erro)
+        })
+    })
+}
 
 
 exports.updateOrderByManger = async (cartId, stat) => {
     return new Promise((resolve, reject) => {
-        console.log(cartId)
+
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
             return orderItems.updateOne({ _id: cartId }, { "orderInfo.status": stat })
         }).then(() => {

@@ -88,10 +88,10 @@ exports.postOrderAllCart = (req, res, next) => {
 
         let buyerInfo = {
             firstName: req.body.firstName,
-            lastName: req.body.firstName,
+            lastName: req.body.lastName,
             addressLine1: req.body.addressLine1,
             addressLine2: req.body.addressLine2,
-            city: req.body.firstName.city,
+            city: req.body.city,
             mobileNumber: req.body.mobileNumber
         }
         let orderInfor = {
@@ -105,10 +105,12 @@ exports.postOrderAllCart = (req, res, next) => {
         ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {
 
 
+        }).then(() => {
+            next()
         }).catch(erro => {
             console.log(erro, 'postOrderAllCart')
         })
-        next()
+
 
     })
 

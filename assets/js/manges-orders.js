@@ -163,7 +163,7 @@ function gethi(e) {
         </select>
         <input type="hidden" name="cartId" value="${orders[j]._id}">
         <input type="submit" value="Save" class="btn btn-success" formaction="/admin/orders/save">
-        <button type="submit" class="btn btn-danger" formaction="">Cancel
+        <button type="submit" class="btn btn-danger" formaction="/admin/orders/cancel">Cancel
             order</button>
     </form>
 `        
