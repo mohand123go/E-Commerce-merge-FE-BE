@@ -60,7 +60,7 @@
 
                         <h6 class="order-Abstract--email">mohand.mostafa9811@gamil.com</h6>
                         <div class="order-Abstract--info-wraper">
-                            <span class="order-Abstract--status">on process</span>
+                            <span class="order-Abstract--status"><%= orders[i].orderInfo.status %></span>
                             <span class="order-Abstract--qty">QTY <%= orders[i].orderInfo.CartProductAmount %></span>
                             <span class="order-Abstract--price"><%= orders[i].orderInfo.CartTotal %> EGP</span>
 
@@ -73,50 +73,97 @@
 
 
                 <div class="mange-order-panal">
-
                     <header class="mange-order-panal--header ">
-                        <span>order info</span>
-                        <span>order items</span>
-                        <span>buyer info</span>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                role="tab" aria-controls="nav-home" aria-selected="true">order info</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-buyerInfo"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">order items</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">buyer info</a>
+                        </div>
                     </header>
-                    <div class="mange-order-panal--product-wraper ">
 
-                        <div class="mange-order--table-header display-non855">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="mange-order-panal--product-wraper ">
 
-                            <span>imag</span>
-                            <span>name</span>
-                            <span>QTY</span>
-                            <span>size</span>
-                            <span>color</span>
-                            <span>unite price</span>
-                            <span>total</span>
-                        </div> <!-- .mange-order--table-header -->
+                                <div class="mange-order--table-header ">
 
-                        <div class="mange-order--table-body">
+                                    <span>imag</span>
+                                    <span>name</span>
+                                    <span>QTY</span>
+                                    <span>size</span>
+                                    <span>color</span>
+                                    <span>unite price</span>
+                                    <span>total</span>
+                                </div> <!-- .mange-order--table-header -->
 
-                            <!-- .mange-order--table-body__order-wraper-->
-                        </div> <!-- .mange-order--table-body -->
+                                <div class="mange-order--table-body">
 
-                        <div class="mange-order--table-footer">
+                                    <!-- .mange-order--table-body__order-wraper-->
+                                </div> <!-- .mange-order--table-body -->
 
-                        </div> <!-- .mange-order--table-footer -->
+                                <div class="mange-order--table-footer">
 
-                    </div> <!-- .mange-order-page -->
+                                </div> <!-- .mange-order--table-footer -->
 
-                </div> <!-- .mange-order-panal -->
+                            </div> <!-- .mange-order-page -->
+                        </div>
+                        <div class="tab-pane fade" id="nav-buyerInfo" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <!-- inject from javascript-->
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="mange-order-panal--order-info">
+                                <div class="right-side--order-info">
+                                    <div class="buyer-info--shipping-info">
 
-            </div> <!-- mange-order-system-wraper-->
-
-        </div> <!-- .container -->
-    </div><!-- .mange-order-page-->
+                                    </div>
+                                    <!-- buyer-info--shipping-info -->
 
 
+                                    <div class="buyer-info--bill-check">
+
+                                        <!-- bill-check--content-wraper -->
 
 
-    <% } %>
-    <script>
-        orders = JSON.parse('<%- JSON.stringify(orders) %>');
+
+                                    </div>
+
+                                </div>
+
+                                <div class="left-side--order-info">
+                                    <div class="buyer-info-data-and-email">
+                                        <span>15/5/2020</span>
+                                        <span>mohand.mostafa9811@gmail.com</span>
+                                    </div>
+                                    <div class="buyer-info-panal-control">
+                                        <!--form-->
+                                    </div>
 
 
-    </script>
-    <%- include('parts/footer')%>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div> <!-- .mange-order-panal -->
+
+                    </div> <!-- mange-order-system-wraper-->
+
+                </div> <!-- .container -->
+            </div><!-- .mange-order-page-->
+
+
+
+
+            <% } %>
+            <script>
+                orders = JSON.parse('<%- JSON.stringify(orders) %>');
+
+
+            </script>
+            <%- include('parts/footer')%>

@@ -127,6 +127,8 @@ exports.postAdd = (req, res, next) => {
 }
 
 exports.postUpdateOrdersByManger = (req, res, next) => {
+    console.log('guc', req.body.cartId)
+    console.log('bb', req.body.editedStatus)
     ordersModel.updateOrderByManger(req.body.cartId, req.body.editedStatus).then(() => {
 
 

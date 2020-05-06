@@ -67,9 +67,112 @@ function gethi(e) {
 
 
                 </div>`
+
                 mangeOrdeTableFooter.innerHTML = billCheck
+
+
+                let navBuyerInfo = document.querySelector('#nav-buyerInfo')
+                console.log()
+                navBuyerInfo.innerHTML =     `<div class="mange-order-panal--buyer-info">
+                <div class="mange-order-panal--buyer--info-content-wraper">
+
+                    <div class="buyer-info">
+                        <span>First Name</span>
+                        <span>${orders[j].buyerInfo.firstName}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>Last Name</span>
+                        <span>${orders[j].buyerInfo.lastName}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>Address 1</span>
+                        <span>${orders[j].buyerInfo.addressLine1}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>Address 2</span>
+                        <span>${orders[j].buyerInfo.addressLine1}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>City</span>
+                        <span>${orders[j].buyerInfo.addressLine2}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>Telephone</span>
+                        <span>${orders[j].buyerInfo.mobileNumber}</span>
+                    </div>
+
+                    <div class="buyer-info">
+                        <span>Email</span>
+                        <span>mohand.mostafa9811@gamil.com</span>
+                    </div>
+                </div>
+            </div>`
                 
                     orderParent.innerHTML = elment
+
+
+                    let buyer_info__shipping_info__context =  ` 
+                    <span>${orders[j].buyerInfo.lastName} ${orders[j].buyerInfo.lastName}</span>
+                    <span>${orders[j].buyerInfo.mobileNumber}</span>
+                    <span>${orders[j].buyerInfo.addressLine1}</span>
+                    <span>${orders[j].buyerInfo.addressLine2}</span>
+               
+              `
+              let buyer_info__hipping_info = document.querySelector('.buyer-info--shipping-info')
+              buyer_info__hipping_info.innerHTML = buyer_info__shipping_info__context
+
+              let buyer_info__bill_check_elment = document.querySelector('.buyer-info--bill-check')
+
+              let buyer_info__bill_check_content = `
+
+              <div class="bill-check--content-wraper">
+                  <span>QTY</span>
+                  <span>${orders[j].orderInfo.CartProductAmount} unite</span>
+              </div>
+              <div class="bill-check--content-wraper">
+                  <span>subtotal</span>
+                  <span>${orders[j].orderInfo.subTotal} EGP</span>
+              </div>
+              <div class="bill-check--content-wraper">
+                  <span>shipping cost</span>
+                  <span>${orders[j].orderInfo.ShippingCost} EGP</span>
+              </div>
+              <div class="bill-check--content-wraper">
+                  <span>Total</span>
+                  <span> ${orders[j].orderInfo.CartTotal} EGP</span>
+              </div>
+              
+` 
+
+        buyer_info__bill_check_elment.innerHTML = buyer_info__bill_check_content
+
+
+        let buyer_info_panal_control = document.querySelector('.buyer-info-panal-control')
+
+        let mange_order_form = ` <form method="POST">
+        <select name="editedStatus">
+            <option value="on process">on process</option>
+            <option value="accepted">accepted</option>
+            <option value="in delivery">in delivery</option>
+            <option value="delivered">delivered</option>
+        </select>
+        <input type="hidden" name="cartId" value="${orders[j]._id}">
+        <input type="submit" value="Save" class="btn btn-success" formaction="/admin/orders/save">
+        <button type="submit" class="btn btn-danger" formaction="">Cancel
+            order</button>
+    </form>
+`        
+    buyer_info_panal_control.innerHTML = mange_order_form
+
+
+          
+          
+              
                
                    
                     }

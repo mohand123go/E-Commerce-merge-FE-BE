@@ -4,6 +4,7 @@ const DB_URl = 'mongodb://localhost:27017/online-shop'
 cartModel = require('./cart.model')
 
 const orderSchema = mongoose.Schema({
+
     orderInfo: {
         subTotal: Number,
         ShippingCost: Number,
@@ -248,9 +249,9 @@ exports.getAllItem = () => {
 
 exports.updateOrderByManger = async (cartId, stat) => {
     return new Promise((resolve, reject) => {
-
+        console.log(cartId)
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-            return orderItems.updateOne({ _id: cartId }, { status: stat })
+            return orderItems.updateOne({ _id: cartId }, { "orderInfo.status": stat })
         }).then(() => {
             mongoose.disconnect();
 
