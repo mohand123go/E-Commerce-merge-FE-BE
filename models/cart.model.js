@@ -121,11 +121,13 @@ exports.deleteItem = (id) => {
 exports.deleteAllItem = () => {
     return new Promise((resolve, reject) => {
 
-        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() =>
-            cartItem.deleteMany({})
-        ).then(() => {
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+            return cartItem.deleteMany({})
+        }
+        ).then((delet) => {
             mongoose.disconnect()
-            resolve()
+            console.log('reslove the  delet', delet)
+            resolve(delet)
         }).catch((erro) => {
             mongoose.disconnect()
             reject(erro)

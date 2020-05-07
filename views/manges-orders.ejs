@@ -59,6 +59,7 @@
 
 
                 <div class="order-bar">
+                    <%  let year , month , day ,hour ; %>
                     <% for(let i = 0 ; i < orders.length ; i++){ %>
 
                     <div class="order-Abstract" onclick="gethi(this)">
@@ -67,7 +68,7 @@
 
                         <% let orderDate = new Date(orders[i].orderInfo.date)      %>
 
-                        <% let year , month , day ,hour ;
+                        <%
                     year = orderDate.getFullYear() ; month = orderDate.getMonth() ;
                     day = orderDate.getDate()  ; 
                         %>
@@ -121,69 +122,177 @@
                                 </div> <!-- .mange-order--table-header -->
 
                                 <div class="mange-order--table-body">
+                                    <% for(let item of orders[0].item) { %>
+                                    <div class="mange-order--table-body__order-wraper">
+                                        <span><img src='/<%= item.image_name %>' width="50" /></span>
+                                        <span><%=item.name %></span>
+                                        <span><%=item.amount %></span>
+                                        <span><%=item.size %></span>
+                                        <span>
+                                            <span
+                                                style="display: inline-block; background-color: <%=item.color %>; border-radius: 50%; width: 20px; height: 20px;"></span>
+                                        </span>
+                                        <span><%=item.price %> EGP</span>
+                                        <span><%=item.amount * item.price %> EGP</span>
+                                    </div>
+                                    <%}%>
 
                                     <!-- .mange-order--table-body__order-wraper-->
                                 </div> <!-- .mange-order--table-body -->
 
                                 <div class="mange-order--table-footer">
+                                    <div class="mange-order--bill-check">
 
-                                </div> <!-- .mange-order--table-footer -->
-
-                            </div> <!-- .mange-order-page -->
-                        </div>
-                        <div class="tab-pane fade" id="nav-buyerInfo" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            <!-- inject from javascript-->
-                        </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="mange-order-panal--order-info">
-                                <div class="right-side--order-info">
-                                    <div class="buyer-info--shipping-info">
-
-                                    </div>
-                                    <!-- buyer-info--shipping-info -->
-
-
-                                    <div class="buyer-info--bill-check">
-
-                                        <!-- bill-check--content-wraper -->
-
-
-
-                                    </div>
-
+                                        <div class="bill-check--content-wraper">
+                                            <span>QTY</span>
+                                            <span><%=orders[0].orderInfo.CartProductAmount %> unite</span>
+                                </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>subtotal</span>
+                                    <span><%=orders[0].orderInfo.subTotal %> EGP</span>
+                                </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>shipping cost</span>
+                                    <span><%=orders[0].orderInfo.ShippingCost %> EGP</span>
+                                </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>Total</span>
+                                    <span> <%=orders[0].orderInfo.CartTotal %> EGP</span>
                                 </div>
 
-                                <div class="left-side--order-info">
-                                    <div class="buyer-info-data-and-email">
-                                        <span>15/5/2020</span>
-                                        <span>mohand.mostafa9811@gmail.com</span>
-                                    </div>
-                                    <div class="buyer-info-panal-control">
-                                        <!--form-->
-                                    </div>
+
+                            </div>
+
+                        </div> <!-- .mange-order--table-footer -->
+
+                    </div> <!-- .mange-order-page -->
+                </div>
+                <div class="tab-pane fade" id="nav-buyerInfo" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    <div class="mange-order-panal--buyer-info">
+                        <div class="mange-order-panal--buyer--info-content-wraper">
+
+                            <div class="buyer-info">
+                                <span>First Name</span>
+                                <span><%= orders[0].buyerInfo.firstName%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>Last Name</span>
+                                <span><%= orders[0].buyerInfo.lastName%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>Address 1</span>
+                                <span><%= orders[0].buyerInfo.addressLine1%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>Address 2</span>
+                                <span><%= orders[0].buyerInfo.addressLine2%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>City</span>
+                                <span><%= orders[0].buyerInfo.city%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>Telephone</span>
+                                <span><%= orders[0].buyerInfo.mobileNumber%></span>
+                            </div>
+
+                            <div class="buyer-info">
+                                <span>Email</span>
+                                <span><%= orders[0].buyerInfo.userEmail%></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- inject from javascript-->
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="mange-order-panal--order-info">
+                        <div class="right-side--order-info">
+                            <div class="buyer-info--shipping-info">
+                                <span><%= orders[0].buyerInfo.firstName %>
+                                    <%= orders[0].buyerInfo.lastName%></span>
+                                <span><%= orders[0].buyerInfo.mobileNumber%></span>
+                                <span><%= orders[0].buyerInfo.addressLine1%></span>
+                                <span><%= orders[0].buyerInfo.addressLine2%></span>
+                            </div>
+                            <!-- buyer-info--shipping-info -->
 
 
+                            <div class="buyer-info--bill-check">
+                                <div class="bill-check--content-wraper">
+                                    <span>QTY</span>
+                                    <span><%=orders[0].orderInfo.CartProductAmount%> unite</span>
                                 </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>subtotal</span>
+                                    <span><%=orders[0].orderInfo.subTotal%> EGP</span>
+                                </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>shipping cost</span>
+                                    <span><%=orders[0].orderInfo.ShippingCost%> EGP</span>
+                                </div>
+                                <div class="bill-check--content-wraper">
+                                    <span>Total</span>
+                                    <span> <%=orders[0].orderInfo.CartTotal%> EGP</span>
+                                </div>
+                                <!-- bill-check--content-wraper -->
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="left-side--order-info">
+                            <div class="buyer-info-data-and-email">
+                                <span><%= year + "/" + month + "/" + day %></span>
+                                <span> <%= orders[0].buyerInfo.userEmail %></span>
+                            </div>
+                            <div class="buyer-info-panal-control">
+                                <form method="POST">
+                                    <select name="editedStatus">
+                                        <option value="on process">on process</option>
+                                        <option value="accepted">accepted</option>
+                                        <option value="in delivery">in delivery</option>
+                                        <option value="delivered">delivered</option>
+                                    </select>
+                                    <input type="hidden" name="cartId" value="<%= orders[0]._id%>">
+                                    <input type="submit" value="Save" class="btn btn-success"
+                                        formaction="/admin/orders/save">
+                                    <button type="submit" class="btn btn-danger"
+                                        formaction="/admin/orders/cancel">Cancel
+                                        order</button>
+                                </form>
+                                <!--form-->
                             </div>
 
 
-
-
-
-                        </div> <!-- .mange-order-panal -->
-
-                    </div> <!-- mange-order-system-wraper-->
-
-                </div> <!-- .container -->
-            </div><!-- .mange-order-page-->
+                        </div>
+                    </div>
 
 
 
 
-            <% } %>
-            <script>
-                orders = JSON.parse('<%- JSON.stringify(orders) %>');
+
+                </div> <!-- .mange-order-panal -->
+
+            </div> <!-- mange-order-system-wraper-->
+
+        </div> <!-- .container -->
+    </div><!-- .mange-order-page-->
 
 
-            </script>
-            <%- include('parts/footer')%>
+
+
+    <% } %>
+    <script>
+        orders = JSON.parse('<%- JSON.stringify(orders) %>');
+
+
+    </script>
+    <%- include('parts/footer')%>

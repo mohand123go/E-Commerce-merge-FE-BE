@@ -104,10 +104,9 @@ exports.postOrderAllCart = (req, res, next) => {
         }
 
         ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {
-
-
-        }).then(() => {
+            console.log('im here next to the next ordersModel.addNewOrde')
             next()
+
         }).catch(erro => {
             console.log(erro, 'postOrderAllCart')
         })
@@ -124,6 +123,7 @@ exports.postOrderAllCart = (req, res, next) => {
 
 exports.postOrderAllCartDelete = (req, res, next) => {
     cartModel.deleteAllItem().then(() => {
+        console.log('next to orders redirect')
         res.redirect('/orders')
     }).catch((erro) => {
         console.log(erro)

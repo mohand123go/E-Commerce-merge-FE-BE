@@ -2,10 +2,7 @@
 
 function gethi(e) {
 
-    console.log(orders)
-    let orderParent = document.querySelector('.mange-order--table-body')
-  
-    console.log('orderParent',orderParent)
+ 
    
     for (let i = 0; i < e.children.length; i++) {
         if (e.children[i].classList.contains('fullorderinfoKey')) {
@@ -44,6 +41,13 @@ function gethi(e) {
               
                   
                     }
+
+                    let orderParent = document.querySelector('.mange-order--table-body')
+                    orderParent.innerHTML = elment
+
+
+
+
                     let mangeOrdeTableFooter = document.querySelector('.mange-order--table-footer')
 
                     let billCheck = `<div class="mange-order--bill-check">
@@ -113,11 +117,11 @@ function gethi(e) {
                 </div>
             </div>`
                 
-                    orderParent.innerHTML = elment
+             
 
 
                     let buyer_info__shipping_info__context =  ` 
-                    <span>${orders[j].buyerInfo.lastName} ${orders[j].buyerInfo.lastName}</span>
+                    <span>${orders[j].buyerInfo.firstName} ${orders[j].buyerInfo.lastName}</span>
                     <span>${orders[j].buyerInfo.mobileNumber}</span>
                     <span>${orders[j].buyerInfo.addressLine1}</span>
                     <span>${orders[j].buyerInfo.addressLine2}</span>
@@ -170,11 +174,25 @@ function gethi(e) {
     buyer_info_panal_control.innerHTML = mange_order_form
 
 
+    let buyer_info_data_and_email_element = document.querySelector('.buyer-info-data-and-email')
+   
+
+    let year , month , day ,hour ; 
+    
+
+    let orderDate = new Date(orders[j].orderInfo.date)     
+
+    year = orderDate.getFullYear() ; month = orderDate.getMonth() ;
+    day = orderDate.getDate()  ; 
+    year + "/" + month + "/" + day 
+
+    let buyer_info_data_and_email_content = `<span>${year + "/" + month + "/" + day }</span>
+    <span>${orders[j].buyerInfo.userEmail}</span>`
           
-          
-              
-               
-                   
+    buyer_info_data_and_email_element.innerHTML  = buyer_info_data_and_email_content
+
+   
+
                     }
                 }
                 
