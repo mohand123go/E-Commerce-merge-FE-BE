@@ -18,11 +18,11 @@ const cartItem = mongoose.model('cart', cartSchema)
 
 exports.cartItem = cartItem
 
-exports.addNewItem = (data, amount, userId) => {
+exports.addNewItem = (data) => {
     return new Promise((resolve, reject) => {
 
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-            return cartItem.findOne({ productId: data.productId, userId: data.userId })
+            return cartItem.findOne({ productId: data.productId, userId: data.userId, color: data.color, size: data.size })
         }
         ).then(items => {
 
