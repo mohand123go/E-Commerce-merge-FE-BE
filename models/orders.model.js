@@ -259,7 +259,7 @@ exports.cancelOrderByManger = (cartId) => {
     })
 }
 
-exports.searchByUserinfo = (mangeOrderSearch) => {
+exports.searchByUserinfo = (mangeOrderStatus, mangeOrderSearch) => {
     return new Promise((resolve, reject) => {
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
             if (isNaN(Number(mangeOrderSearch))) {
@@ -267,6 +267,7 @@ exports.searchByUserinfo = (mangeOrderSearch) => {
 
                 return orderItems.find({
                     $or: [
+
 
                         { "buyerInfo.city": regex },
                         { "buyerInfo.addressLine1": regex },
@@ -277,10 +278,12 @@ exports.searchByUserinfo = (mangeOrderSearch) => {
                     ]
                 })
             } else {
+
                 return orderItems.find({
                     $or: [
 
                         { "buyerInfo.mobileNumber": mangeOrderSearch },
+                        { "orderInfo.status": mangeOrderStatus }
 
 
                     ]

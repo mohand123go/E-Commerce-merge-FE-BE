@@ -101,9 +101,9 @@ exports.searchByUserEmail = (req, res, next) => {
 }
 
 exports.postSearch = (req, res, next) => {
-
-    ordersModel.searchByUserinfo(req.body.mangeOrderSearch).then((searchByUserinfoReuslt) => {
-
+    console.log('req.body.mangeOrderStatus', req.body.mangeOrderStatus)
+    ordersModel.searchByUserinfo(req.body.mangeOrderStatus, req.body.mangeOrderSearch).then((searchByUserinfoReuslt) => {
+        console.log('searchByUserinfoReuslt', searchByUserinfoReuslt)
         if (searchByUserinfoReuslt.length == 0) {
             searchByUserinfoReuslt.push(-1)
         }

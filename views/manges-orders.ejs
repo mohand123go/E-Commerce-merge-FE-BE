@@ -45,8 +45,11 @@
 
                     <input class="shearch-bar--shearch-input" type="search" placeholder="Srach" name="mangeOrderSearch">
 
-                    <select>
-                        <option>on process</option>
+                    <select name="mangeOrderStatus">
+                        <option value="on process">on process</option>
+                        <option value="accepted">accepted</option>
+                        <option value="in delivery">in delivery</option>
+                        <option value="delivered">delivered</option>
                     </select>
 
                     <input type="submit" formaction="/admin/orders/search">
