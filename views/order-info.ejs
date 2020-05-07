@@ -9,24 +9,42 @@
             <div class="order-Progress">
                 <% console.log("orderFullInfo",orderFullInfo) %>
                 <div class="order-Progress-wraper">
-                    <h2><span>order</span> ng123213213</h2>
+                    <h5><span>order</span> <%= orderFullInfo[0]._id %></h5>
                     <div class="orderProgressBar">
-                        <div class="on-process activeProgress">
+                        <% let  on_process ,accepted, in_delivery , delivered %>
+                        <% if( orderFullInfo[0].orderInfo.status ==  'on process'){
+                            on_process = 'activeProgress'
+                        }else if(orderFullInfo[0].orderInfo.status ==  'accepted'){
+                                on_process = 'activeProgress'
+                                accepted = 'activeProgress'
+
+                            }else if(orderFullInfo[0].orderInfo.status ==  'in delivery'){
+                                on_process = 'activeProgress'
+                                accepted = 'activeProgress'
+                                in_delivery = 'activeProgress'
+                            }else{
+                                on_process = 'activeProgress'
+                                accepted = 'activeProgress'
+                                in_delivery = 'activeProgress'
+                                delivered = 'activeProgress'
+                            }
+                        %>
+                        <div class="on-process  <%=  on_process %>">
                             on process
                             <i class="far fa-check-circle"></i>
                         </div>
 
-                        <div class="accepted ">
+                        <div class="accepted <%=   accepted %>">
                             accepted
                             <i class="far fa-check-circle"></i>
                         </div>
 
-                        <div class="in-delivery">
+                        <div class="in-delivery <%=  in_delivery %>">
                             in delivery
                             <i class="far fa-check-circle"></i>
                         </div>
 
-                        <div class="delivered">
+                        <div class="delivered <%=  delivered %>">
                             delivered
                             <i class="far fa-check-circle"></i>
                         </div>
