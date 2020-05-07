@@ -108,7 +108,7 @@ function gethi(e) {
 
                     <div class="buyer-info">
                         <span>Email</span>
-                        <span>mohand.mostafa9811@gamil.com</span>
+                        <span>${orders[j].buyerInfo.userEmail}</span>
                     </div>
                 </div>
             </div>`

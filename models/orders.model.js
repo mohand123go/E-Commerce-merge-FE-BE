@@ -25,6 +25,7 @@ const orderSchema = mongoose.Schema({
         addressLine2: String,
         city: String,
         mobileNumber: Number,
+        userEmail: String
 
     },
     item: [{

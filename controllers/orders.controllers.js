@@ -85,14 +85,15 @@ exports.postOrderCancelAll = (req, res, next) => {
 exports.postOrderAllCart = (req, res, next) => {
 
     ordersModel.findAllOrder().then((All_Order_In_The_Cart) => {
-
+        console.log('req.session.userEmail', req.session.userEmail)
         let buyerInfo = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             addressLine1: req.body.addressLine1,
             addressLine2: req.body.addressLine2,
             city: req.body.city,
-            mobileNumber: req.body.mobileNumber
+            mobileNumber: req.body.mobileNumber,
+            userEmail: req.session.userEmail
         }
         let orderInfor = {
             subTotal: req.body.subTotal,

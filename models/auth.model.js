@@ -63,10 +63,12 @@ exports.login = (email, password) => {
                             mongoose.disconnect()
                             reject('password is incorrect')
                         } else {
+
                             mongoose.disconnect()
                             reslove({
                                 userId: user._id,
-                                IsAdmin: user.IsAdmin
+                                IsAdmin: user.IsAdmin,
+                                userEmail: user.email
                             })
                         }
                     })

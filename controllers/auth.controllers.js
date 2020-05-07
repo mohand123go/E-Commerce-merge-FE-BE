@@ -42,8 +42,10 @@ exports.postLogin = (req, res, next) => {
     if (validationResult(req).isEmpty()) {
         authModel.login(req.body.email, req.body.password)
             .then((result) => {
+
                 req.session.userId = result.userId
                 req.session.isAdmin = result.IsAdmin
+                req.session.userEmail = result.userEmail
                 res.redirect('/')
             })
             .catch(erro => {

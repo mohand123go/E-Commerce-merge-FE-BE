@@ -76,7 +76,7 @@
 
                         <span class="order-Abstract--date"> <%= year + "/" + month + "/" + day %></span>
 
-                        <h6 class="order-Abstract--email">mohand.mostafa9811@gamil.com</h6>
+                        <h6 class="order-Abstract--email"><%= orders[i].buyerInfo.userEmail %></h6>
                         <div class="order-Abstract--info-wraper">
                             <span class="order-Abstract--status"><%= orders[i].orderInfo.status %></span>
                             <span class="order-Abstract--qty">QTY <%= orders[i].orderInfo.CartProductAmount %></span>
