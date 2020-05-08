@@ -2,7 +2,10 @@
 div.HomeProductItem--ctn{
     background: linear-gradient(54deg, rgba(213,203,202,1) 0%, rgba(232,227,224,1) 20%, rgba(227,222,219,1) 51%, rgba(174,168,168,1) 100%);
     text-align: center;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: white;
     position: relative;
     top: 0;
@@ -22,44 +25,17 @@ div.HomeProductItem--ctn{
 
 
 .HomePage-main-Content{
-    width: calc(100% - 50px); 
+
     display: flex;
     flex-direction: column;
     justify-content: center;  
 }
 
-.HomeProductItem--nav{
-    height: 100vh;
-    width: 50px;
-}
-
-.HomeProductItem nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
 
-.HomeProductItem--nav li{
-    transform: rotate(-90deg);
-}
-
-.HomeProductItem--nav li.nav_icon{
-    transform: rotate(0);
-}
 
 
-.HomeProductItem nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 900;
-}
+
 
 
 
@@ -235,10 +211,8 @@ animation: animate1 1s linear infinite;
 }
 
 .HomeProductItem .product_name{
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%,-50%); 
+
+    margin: 0;
 }
 
 .HomeProductItem .product_description{
@@ -255,6 +229,7 @@ animation: animate1 1s linear infinite;
 
 
 @media (min-width: 1200px) and (max-width: 1500px) { 
+   
     .HomeProductItem  h2{
         font-size: 8rem !important;
     }
@@ -268,6 +243,7 @@ animation: animate1 1s linear infinite;
 }
 
 @media (min-width: 999px) and (max-width: 1199px) { 
+ 
     img{
         width: 70%;
     }
@@ -283,6 +259,7 @@ animation: animate1 1s linear infinite;
 }
 
 @media (min-width: 577px) and (max-width: 998px) { 
+   
 
     .HomeProductItem .add_to_cart {
 
@@ -326,8 +303,7 @@ animation: animate1 1s linear infinite;
     align-items: center;    
 }
 .HomeProductItem .product_name{   
-    width: 100%;
-    top: 25%;
+   
 }
 .HomeProductItem .btn{
     padding: 0;
@@ -345,8 +321,7 @@ animation: animate1 1s linear infinite;
 }
 
 .HomeProductItem .product_name{
-    width: 100%;
-    top: 18%;
+   
 }
 .HomeProductItem .product_wraper{
     position: relative;
@@ -400,5 +375,114 @@ width: 50%;
     top: 20px;
     left: -24px;
 }
+}
+
+/* our nav */
+
+.homePage-cart-icon{
+    position: absolute;
+    right:5%;
+    top: 50%;
+    transform: translate(-5%,-50%);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.homePageNav{
+  
+
+    position: absolute;
+    z-index: 1500;
+    width: 100vw;
+    height: 80px;
+    top: 0;
+    left: 0;
+  
+
+}
+
+.homePageNav--nav-links{
+    display: flex;
+    list-style: none;
+    position: fixed;
+    background-color:darkslategray;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: sans-serif;
+   clip-path: circle(100px at -120% -50%);
+   -webkit-clip-path:circle(100px at -120% -10%);
+   transition: clip-path 0.8s ease-in-out;
+   pointer-events: none;
+   padding-left: 0;
+}
+
+.homePageNav--nav-links.open{
+    clip-path: circle(5000px at -120% -50%);
+    -webkit-clip-path:circle(5000px at -120% -10%);
+    pointer-events: all;
+    
+}
+
+.homePageNav--nav-links .homPageNave--list-item a {
+    color:white;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+
+
+
+.homePageNav--nav-links .homPageNave--list-item{
+opacity: 0;
+}
+
+
+.homePageNav--nav-links .homPageNave--list-item:nth-child(1){
+    transition: all 0.5s ease-in-out 0.2s;
+}
+.homePageNav--nav-links .homPageNave--list-item:nth-child(2){
+    transition: all 0.5s ease-in-out 0.3s;
+}
+
+
+.homePageNav--nav-links .homPageNave--list-item:nth-child(3){
+    transition: all 0.5s ease-in-out 0.4s;
+}
+
+
+.homePageNav--nav-links .homPageNave--list-item:nth-child(4){
+    transition: all 0.5s ease-in-out 0.5s;
+}
+
+
+.homePageNav--nav-links .homPageNave--list-item:nth-child(5){
+    transition: all 0.5s ease-in-out 0.6s;
+}
+
+
+.homePageNav--nav-links .homPageNave--list-item.fade{
+  opacity: 1;
+}
+
+.hamburger-line{
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+}
+
+.hamburger{
+    position: absolute;
+  
+    z-index: 1000;
+    cursor: pointer;
+    left: 5%;
+    top: 50%;
+    transform: translate(-5%,-50%);
 }
 

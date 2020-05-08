@@ -145,6 +145,21 @@
     <% if(orders.length == 0){%>
     <p class="alert alert-danger">there no Order yet</p>
     <% } else { %>
+
+
+        
+          <nav class="HomeProductItem--nav">
+        <ul>
+          <li class="nav_icon"> <a href="/cart"><i class="fas fa-bars"></i></a></li>
+
+
+
+
+
+
+
+        </ul>
+      </nav>
     
 
 

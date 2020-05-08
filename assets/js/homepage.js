@@ -3,9 +3,7 @@
 new fullpage('#fullpage', {
 
 
-    autoScrolling: true,
-    scrollHorizontally: true,
-    fadingEffect: true,
+    fixedElements: '.homePageNav',
 
 
 
@@ -17,7 +15,7 @@ new fullpage('#fullpage', {
         let landingPageImage = document.querySelector(' .HomeProductItem--ctn  img:first-of-type ');
         const tl = new TimelineMax({ delay: 0.5 })
         tl.fromTo(landingPageImage, 0.5, { y: '50', opacity: 0 }, { y: '0', opacity: 1, clearProps: "all" })
-        tl.fromTo(landingPageTitle, 0.5, { y: '0', opacity: 0 }, { y: '-50%', opacity: 1, clearProps: "all" })
+        tl.fromTo(landingPageTitle, 0.5, { y: '50', opacity: 0 }, { y: '0', opacity: 1, clearProps: "all" })
 
     },
     onLeave: function (origin, destination, direction) {
@@ -27,7 +25,7 @@ new fullpage('#fullpage', {
 
         const tl = new TimelineMax({ delay: 0.5 })
         tl.fromTo(shoe, 0.5, { y: '50', opacity: 0 }, { y: '0', opacity: 1, clearProps: "all" })
-        tl.fromTo(title, 0.5, { y: '0', opacity: 0 }, { y: '-50%', opacity: 1, clearProps: "all" })
+        tl.fromTo(title, 0.5, { y: '50', opacity: 0 }, { y: '0', opacity: 1, clearProps: "all" })
 
 
     },
@@ -36,3 +34,17 @@ new fullpage('#fullpage', {
 
 
 })
+
+window.onload = () => {
+    const humburguer = document.querySelector('.hamburger')
+    const navLinks = document.querySelector('.homePageNav--nav-links')
+    const links = document.querySelectorAll('.homPageNave--list-item')
+    console.log('fuck')
+
+    humburguer.addEventListener('click', () => {
+        navLinks.classList.toggle('open')
+        links.forEach(link => {
+            link.classList.toggle('fade')
+        })
+    })
+}

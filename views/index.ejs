@@ -17,38 +17,46 @@
     there is no products
   </div>
   <% } else { %>
+  <nav class="homePageNav ">
+    <div class="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <ul class="homePageNav--nav-links">
+      <li class="homPageNave--list-item"><a href="#">Cart</a></li>
+      <li class="homPageNave--list-item"><a href="#">Orders</a></li>
+      <li class="homPageNave--list-item"><a href="#">login</a></li>
+      <li class="homPageNave--list-item"><a href="#">sing-up</a></li>
+      <li class="homPageNave--list-item"><a href="#">About</a></li>
+    </ul>
+    <a class="homePage-cart-icon" href="/cart"><i class=" fas fa-cart-arrow-down"></i></a>
+  </nav>
+
   <% for(let product of products) {%>
+
   <section class="HomeProductItem section">
 
     <!--start HomeProductItem-ctn-->
     <div class="HomeProductItem--ctn">
 
       <!--start HomeProductItem--nav -->
-      <nav class="HomeProductItem--nav">
-        <ul>
-          <li class="nav_icon"><a href="#"><i class="fas fa-search"></i></a></li>
-          <li><a href="#">home</a></li>
 
-          <li><a href="#">cart</a></li>
 
-          <li><a href="#">order</a></li>
-
-        </ul>
-      </nav>
       <!--end HomeProductItem--nav -->
 
 
 
       <!--start HomePage-main-Content -->
       <section class="HomePage-main-Content">
-        <h3>stepup</h3>
+        <h2 class="product_name"><%= product.name%></h2>
 
 
         <div class="product_wraper">
           <div class="imges">
 
             <img class="shoes" src="<%= product.image_name%>">
-            <h2 class="product_name"><%= product.name%></h2>
+
 
           </div>
 
