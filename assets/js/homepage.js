@@ -35,7 +35,8 @@ new fullpage('#fullpage', {
 
 })
 
-window.onload = () => {
+let title = document.querySelector('title')
+if (title.textContent == 'Home - online shop') {
     const humburguer = document.querySelector('.hamburger')
     const navLinks = document.querySelector('.homePageNav--nav-links')
     const links = document.querySelectorAll('.homPageNave--list-item')

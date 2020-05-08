@@ -2,6 +2,7 @@
 window.onload = function totalCostfun() {
 
     let title = document.querySelector('title')
+
     if (title.textContent == 'Cart - online shop') {
 
 
@@ -27,7 +28,13 @@ window.onload = function totalCostfun() {
         orderInfo(subtotalCost, ShippingCost)
     }
 
+    console.log('hi')
+    console.log('fukkkkk')
 }
+
+
+
+
 
 function increaseAmountByOne(e) {
 
