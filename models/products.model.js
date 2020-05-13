@@ -6,7 +6,11 @@ const productSchema = mongoose.Schema({
     name: String,
     price: Number,
     category: String,
-    image_name: String,
+    imageAndColor: [
+        {
+            image_name: String,
+            image_color: String
+        }],
     description: String,
     size: [{
         type: Number

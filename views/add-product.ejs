@@ -5,7 +5,7 @@
         <h3>Add Product</h3>
 
 
-        <input type="text" name="name" placeholder="Name" class="form-control" required>
+        <input type="text" name="name" placeholder="Name" class="form-control">
         <% let nameErro = validationErros.find(err => err.param === 'name') %>
         <% if (nameErro){%>
         <p class="alert alert-danger">
@@ -16,7 +16,7 @@
 
     
         
-        <input type="number"  name="price" placeholder="Price" class="form-control" required >
+        <input type="number"  name="price" placeholder="Price" class="form-control"  >
             <% let priceErro = validationErros.find(err => err.param === 'price') %>
         <% if (priceErro){%>
         <p class="alert alert-danger">
@@ -24,8 +24,11 @@
         </p>
         <%}%>
 
+        
+      
 
-        <input type="text" name="description" placeholder="Description" class="form-control" required>
+
+        <input type="text" name="description" placeholder="Description" class="form-control" >
             <% let descriptionErro = validationErros.find(err => err.param === 'description') %>
         <% if (descriptionErro){%>
         <p class="alert alert-danger">
@@ -36,7 +39,7 @@
       
         
      
-        <select name="category" class="form-control" required>
+        <select name="category" class="form-control" >
             <option disabled selected> choose a category</option>
 
             <option value="clothes" autofocus> clothes </option>
@@ -49,14 +52,29 @@
         </p>
         <%}%>
 
+        <select class="form-control slectColorAndImg" >
+            <option hidden selected> choose how many color for the product</option>
 
-        <input type="file"  accept='image/*' name="image" placeholder="Select image" class="form-control" required>
-        <% let imageErro = validationErros.find(err => err.param === 'image') %>
-        <% if (imageErro){%>
+            <option value="1" > 1 </option>
+            <option value="2"> 2</option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+         
+        </select>
+        
+
+      <div class="imagsAndColorsWrapers">
+    
+
+        <% let   imagesArray = validationErros.find(err => err.param === 'imagesArray') %>
+        <% if (  imagesArray){%>
         <p class="alert alert-danger">
-            <%= imageErro.msg %>
+            <%=   imagesArray.msg %>
         </p>
         <%}%>
+      
+      </div>
 
         
 
@@ -75,9 +93,7 @@
                 <input type="checkbox" name="size"  value="47" /><label for="size">size : 47</label><br />
             </fieldset>
             
-            <input type="color" name="first_color">
-            <input type="color" name="second_color">
-            <input type="color" name="third_color">
+        
         <input class="btn btn-primary" type="submit" value='Add Product'>
 
 

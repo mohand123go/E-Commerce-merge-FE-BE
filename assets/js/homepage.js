@@ -8,7 +8,7 @@ new fullpage('#fullpage', {
 
 
 
-    scrollingSpeed: 700,
+    scrollingSpeed: 1000,
     afterRender: function () {
         let landingPageTitle = document.querySelector(' .HomeProductItem--ctn h2:first-of-type ');
         console.log(landingPageTitle)
@@ -40,12 +40,41 @@ if (title.textContent == 'Home - online shop') {
     const humburguer = document.querySelector('.hamburger')
     const navLinks = document.querySelector('.homePageNav--nav-links')
     const links = document.querySelectorAll('.homPageNave--list-item')
-    console.log('fuck')
+
 
     humburguer.addEventListener('click', () => {
         navLinks.classList.toggle('open')
         links.forEach(link => {
             link.classList.toggle('fade')
         })
+    })
+}
+
+
+
+let checkmark = document.querySelectorAll('.theRealcheckmark')
+let shoes = document.querySelectorAll('.productImageInProductUi')
+let image_name = document.querySelectorAll('.image_name_hidden_input')
+
+
+
+for (let i = 0; i < checkmark.length; i++) {
+    checkmark[i].addEventListener("change", () => {
+
+
+        for (let j = 0; j < products.length; j++) {
+
+            for (let k = 0; k < products[j].imageAndColor.length; k++)
+
+                if (products[j].imageAndColor[k]._id == checkmark[i].nextElementSibling.nextElementSibling.value) {
+
+                    const t3 = new TimelineMax()
+                    t3.fromTo(shoes[j], 0.5, { opacity: 0 }, { opacity: 1, clearProps: "all" })
+
+
+                    shoes[j].src = products[j].imageAndColor[k].image_name
+                    image_name[j].value = products[j].imageAndColor[k].image_name
+                }
+        }
     })
 }

@@ -115,21 +115,36 @@ exports.postSearch = (req, res, next) => {
 
 exports.postAdd = (req, res, next) => {
 
+
+
+
     if (validationResult(req).isEmpty()) {
 
-        ProductsModel.postProducts({
 
+        let imageobj = []
+        for (let i = 0; i < req.files.imagesArray.length; i++) {
+            let obj2 = {
+                image_name: req.files.imagesArray[i].filename,
+                image_color: req.body.color[i]
+            }
+            imageobj.push(obj2)
+        }
+
+
+        let obj = {
             name: req.body.name,
             price: req.body.price,
             category: req.body.category,
-            image_name: req.file.filename,
+            imageAndColor: imageobj,
             description: req.body.description,
             size: req.body.size,
             first_color: req.body.first_color,
             second_color: req.body.second_color,
             third_color: req.body.third_color
+        }
 
-        }).then(() => {
+
+        ProductsModel.postProducts(obj).then(() => {
             res.redirect('/')
         }).catch(error => {
             next(error)
