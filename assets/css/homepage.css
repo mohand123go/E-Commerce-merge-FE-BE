@@ -321,7 +321,8 @@ animation: animate1 1s linear infinite;
 }
 
 .HomeProductItem .product_name{
-   
+    top: 20px;
+ 
 }
 .HomeProductItem .product_wraper{
     position: relative;
@@ -349,7 +350,7 @@ width: 50%;
 .HomeProductItem .ui_product .ui_card {
    
     top: 20px;
-    left: -24px;
+ 
 }
 }
 
@@ -373,7 +374,7 @@ width: 50%;
 .HomeProductItem .ui_product .ui_card {
    
     top: 20px;
-    left: -24px;
+  
 }
 }
 
