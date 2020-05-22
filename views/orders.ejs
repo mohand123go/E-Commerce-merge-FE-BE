@@ -3,23 +3,24 @@
 
 
 
+<body class="">
 
-<!--Start .ordersContainer -->
-<div class="ordersContainer animsition">
-    <form method="GET">
-        <div class="container">
-            <% if(items.length == 0){%>
-            <p class="alert alert-danger">there no Order</p>
-            <% } else { %>
+    <!--Start .ordersContainer -->
+    <div class="ordersContainer animsition">
+        <form method="GET">
+            <div class="container">
+                <% if(items.length == 0){%>
+                <p class="alert alert-danger">there no Order</p>
+                <% } else { %>
 
-            <div class="order-wraper">
+                <div class="order-wraper">
 
 
-                <%for(let order of items){ %>
+                    <%for(let order of items){ %>
 
-                <% let orderDate = new Date(order.orderInfo.date)      %>
+                    <% let orderDate = new Date(order.orderInfo.date)      %>
 
-                <% let year , month , day ,hour ;
+                    <% let year , month , day ,hour ;
             year = orderDate.getFullYear() ; month = orderDate.getMonth() ;
                day = orderDate.getDate()  ; 
             %>
@@ -28,55 +29,55 @@
 
 
 
-                <!--start .order--item-->
-                <div class="order--item">
+                    <!--start .order--item-->
+                    <div class="order--item">
 
-                    <div class="item--infoWraper">
-                        <input type="hidden">
+                        <div class="item--infoWraper">
+                            <input type="hidden">
+                        </div>
+
+                        <div class="item--infoWraper">
+                            <label class="item--infoWraper_label">Date</label>
+                            <p class="item--infoWraper_info"> <%= year + "/" + month + "/" + day %></p>
+                        </div>
+
+                        <div class="item--infoWraper">
+                            <label class="item--infoWraper_label">status</label>
+                            <p class="item--infoWraper_info"><%= order.orderInfo.status%></p>
+                        </div>
+
+                        <div class="item--infoWraper">
+                            <label class="item--infoWraper_label">quantity</label>
+                            <p class="item--infoWraper_info"><%= order.orderInfo.CartProductAmount %></p>
+                        </div>
+
+
+                        <div class="item--infoWraper">
+                            <label class="item--infoWraper_label">total price</label>
+                            <p class="item--infoWraper_info"><%= order.orderInfo.CartTotal%></p>
+                        </div>
+
+
+                        <div class="item--moreDetailsWraper">
+                            <input class="item--moreDetailsWraper_btn" type="submit" value="more details"
+                                formaction="/order-info/<%= order._id %>">
+                        </div>
+
+
                     </div>
+                    <!--end .order--item-->
 
-                    <div class="item--infoWraper">
-                        <label class="item--infoWraper_label">Date</label>
-                        <p class="item--infoWraper_info"> <%= year + "/" + month + "/" + day %></p>
-                    </div>
-
-                    <div class="item--infoWraper">
-                        <label class="item--infoWraper_label">status</label>
-                        <p class="item--infoWraper_info"><%= order.orderInfo.status%></p>
-                    </div>
-
-                    <div class="item--infoWraper">
-                        <label class="item--infoWraper_label">quantity</label>
-                        <p class="item--infoWraper_info"><%= order.orderInfo.CartProductAmount %></p>
-                    </div>
-
-
-                    <div class="item--infoWraper">
-                        <label class="item--infoWraper_label">total price</label>
-                        <p class="item--infoWraper_info"><%= order.orderInfo.CartTotal%></p>
-                    </div>
-
-
-                    <div class="item--moreDetailsWraper">
-                        <input class="item--moreDetailsWraper_btn" type="submit" value="more details"
-                            formaction="/order-info/<%= order._id %>">
-                    </div>
-
-
+                    <% } %>
                 </div>
-                <!--end .order--item-->
-
                 <% } %>
+
             </div>
-            <% } %>
-
-        </div>
-    </form>
-</div>
-<!--end .ordersContainer -->
+        </form>
+    </div>
+    <!--end .ordersContainer -->
 
 
 
 
-<%- include('parts/footer')%>
-<%- include('parts/footer')%>
+    <%- include('parts/footer')%>
+    <%- include('parts/footer')%>

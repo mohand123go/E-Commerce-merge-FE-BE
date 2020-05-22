@@ -2,53 +2,54 @@
 <%- include('parts/navbar') %>
 
 
-<div class="ctn--auth">
-    <div class="container">
-        <div class="authorization">
-            <h2 class="authorization--title">cotchy</h2>
+<body class="">
+    <div class="ctn--auth animsition">
+        <div class="container">
+            <div class="authorization">
+                <h2 class="authorization--title">cotchy</h2>
 
-            <form action="/signup" method="POST">
-                <div class="authorization--inputWraper">
+                <form action="/signup" method="POST">
+                    <div class="authorization--inputWraper">
 
-                    <input class="authorization--inputWraper__userName" type="text" name="username"
-                        placeholder="Username">
-                    <% let usernameErro = validationErrors.find(erro => erro.param === 'username')  %>
-                    <% if(usernameErro){ %>
-                    <p class="alert alert-danger">
-                        <%= usernameErro.msg %>
-                    </p>
+                        <input class="authorization--inputWraper__userName" type="text" name="username"
+                            placeholder="Username">
+                        <% let usernameErro = validationErrors.find(erro => erro.param === 'username')  %>
+                        <% if(usernameErro){ %>
+                        <p class="alert alert-danger">
+                            <%= usernameErro.msg %>
+                        </p>
 
-                    <%}%>
+                        <%}%>
                     
                     <input class="authorization--inputWraper__email" name="email" type="email" placeholder="Email">
                     <% let EmailErro = validationErrors.find(erro => erro.param === 'email')  %>
-                    <% if(EmailErro){ %>
-                    <p class="alert alert-danger">
-                        <%= EmailErro.msg %>
-                    </p>
+                        <% if(EmailErro){ %>
+                        <p class="alert alert-danger">
+                            <%= EmailErro.msg %>
+                        </p>
 
-                    <%}%>
+                        <%}%>
 
 
 
                     <input class="authorization--inputWraper__password"  name="password" type="password" placeholder="password">
                     <% let passwordErro = validationErrors.find(erro => erro.param === 'password')  %>
-                    <% if(passwordErro){ %>
-                    <p class="alert alert-danger">
-                        <%= passwordErro.msg %>
-                    </p>
+                        <% if(passwordErro){ %>
+                        <p class="alert alert-danger">
+                            <%= passwordErro.msg %>
+                        </p>
 
-                    <%}%>
+                        <%}%>
 
                     <input class="authorization--inputWraper__password" name="confirmPassword" type="password"
                         placeholder="Confirm password">
                         <% let confirmPasswordErro = validationErrors.find(erro => erro.param === 'confirmPassword')  %>
-                    <% if(confirmPasswordErro){ %>
-                    <p class="alert alert-danger">
-                        <%= confirmPasswordErro.msg %>
-                    </p>
+                        <% if(confirmPasswordErro){ %>
+                        <p class="alert alert-danger">
+                            <%= confirmPasswordErro.msg %>
+                        </p>
 
-                    <%}%>
+                        <%}%>
 
                     <input class="authorization--inputWraper__signup" type="submit" value="sign up">
                     <span class="authorization--inputWraper__singup">Already have account ? <a

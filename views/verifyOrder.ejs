@@ -5,59 +5,61 @@
 <!--Start .shipTo -->
 
 
+<body class="">
 
-<div class="shipTo animsition">
-    <div class="container">
-        <div class="shiptTO--textWraper">
-            <h2 class="shiptTO--textWraper__title">ship to</h2>
-            <div class="shiptTO--textWraper__required"> <span class="form--inputWraper__labelStar">* </span>
-                Required
+    <div class="shipTo animsition">
+        <div class="container">
+            <div class="shiptTO--textWraper">
+                <h2 class="shiptTO--textWraper__title">ship to</h2>
+                <div class="shiptTO--textWraper__required"> <span class="form--inputWraper__labelStar">* </span>
+                    Required
+                </div>
             </div>
-        </div>
-        <form method="POST">
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">first name <span
-                        class="form--inputWraper__labelStar">*</span></label>
-                <input class="form--inputWraper__input" name="firstName" type="text" placeholder="Demo">
-            </div>
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">last name <span
-                        class="form--inputWraper__labelStar">*</span></label>
-                <input class="form--inputWraper__input" name="lastName" type="text" placeholder="preview">
-            </div>
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">address line 1 <span
-                        class="form--inputWraper__labelStar">*</span></label>
-                <input class="form--inputWraper__input" name="addressLine1" type="text" placeholder="xx Ann ave">
-            </div>
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">address line 2 <span
-                        class="form--inputWraper__labelStar"></span></label>
-                <input class="form--inputWraper__input" name="addressLine2" type="text" placeholder="">
-            </div>
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">city <span class="form--inputWraper__labelStar">*</span></label>
-                <input class="form--inputWraper__input" name="city" type="text" placeholder="Cairo">
-            </div>
-            <div class="form--inputWraper">
-                <label class="form--inputWraper__label">mobile number <span
-                        class="form--inputWraper__labelStar">*</span></label>
-                <input class="form--inputWraper__input " name="mobileNumber" type="text" placeholder="01******5">
-            </div>
+            <form method="POST">
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">first name <span
+                            class="form--inputWraper__labelStar">*</span></label>
+                    <input class="form--inputWraper__input" name="firstName" type="text" placeholder="Demo">
+                </div>
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">last name <span
+                            class="form--inputWraper__labelStar">*</span></label>
+                    <input class="form--inputWraper__input" name="lastName" type="text" placeholder="preview">
+                </div>
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">address line 1 <span
+                            class="form--inputWraper__labelStar">*</span></label>
+                    <input class="form--inputWraper__input" name="addressLine1" type="text" placeholder="xx Ann ave">
+                </div>
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">address line 2 <span
+                            class="form--inputWraper__labelStar"></span></label>
+                    <input class="form--inputWraper__input" name="addressLine2" type="text" placeholder="">
+                </div>
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">city <span
+                            class="form--inputWraper__labelStar">*</span></label>
+                    <input class="form--inputWraper__input" name="city" type="text" placeholder="Cairo">
+                </div>
+                <div class="form--inputWraper">
+                    <label class="form--inputWraper__label">mobile number <span
+                            class="form--inputWraper__labelStar">*</span></label>
+                    <input class="form--inputWraper__input " name="mobileNumber" type="text" placeholder="01******5">
+                </div>
 
 
-            <!-- start orderInfor input-->
-            <input type="hidden" name="subTotal" value="<%= orderInfo.subTotal %>">
+                <!-- start orderInfor input-->
+                <input type="hidden" name="subTotal" value="<%= orderInfo.subTotal %>">
 
-            <input type="hidden" name="ShippingCost" value="<%= orderInfo.ShippingCost %>">
+                <input type="hidden" name="ShippingCost" value="<%= orderInfo.ShippingCost %>">
 
-            <input type="hidden" name="CartTotal" value="<%= orderInfo.CartTotal %>">
+                <input type="hidden" name="CartTotal" value="<%= orderInfo.CartTotal %>">
 
-            <input type="hidden" name="CartProductAmount" value="<%= orderInfo.CartProductAmount %>">
+                <input type="hidden" name="CartProductAmount" value="<%= orderInfo.CartProductAmount %>">
 
 
-            <!-- end orderInfor input-->
-            <!-- order button funcation
+                <!-- end orderInfor input-->
+                <!-- order button funcation
             
       
                  <%# if (orderItem.order == "order") { %>
@@ -71,21 +73,22 @@
 
                 -->
 
-            <%# } %>
+                <%# } %>
 
-            <div class="form--submitWraper">
-                <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit" value="Next">
-            </div>
+                <div class="form--submitWraper">
+                    <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit"
+                        value="Next">
+                </div>
 
 
 
 
-        </form>
+            </form>
+        </div>
+
+
     </div>
+    <!--end .shipTo -->
 
 
-</div>
-<!--end .shipTo -->
-
-
-<%- include('parts/footer') %>
+    <%- include('parts/footer') %>

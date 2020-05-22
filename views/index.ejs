@@ -2,199 +2,201 @@
 
 
 <!--start fullpage-->
-<div id="fullpage">
 
-  <% if(validationErrors) { %>
-  <p class="alert alert-danger">
-    <%= validationErrors.msg%>
-  </p>
-  <% } %>
+<body id="homePageBodyColor">
+  <div id="fullpage  ">
 
-  <!--start HomeProductItem-->
+    <% if(validationErrors) { %>
+    <p class="alert alert-danger">
+      <%= validationErrors.msg%>
+    </p>
+    <% } %>
 
-  <% if(products.length == 0 ){%>
-  <div class="alert alert-danger">
-    there is no products
-  </div>
-  <% } else { %>
-  <nav class="homePageNav ">
-    <div class="hamburger">
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
+    <!--start HomeProductItem-->
+
+    <% if(products.length == 0 ){%>
+    <div class="alert alert-danger">
+      there is no products
     </div>
-    <ul class="homePageNav--nav-links">
-      <%if(isUser) {%>
-      <li class="homPageNave--list-item"><a href="/cart">Cart</a></li>
-      <li class="homPageNave--list-item"><a href="/orders">Orders</a></li>
-      <%}else{%>
-      <li class="homPageNave--list-item"><a href="/login">login</a></li>
-      <li class="homPageNave--list-item"><a href="/signup">sing-up</a></li>
-      <%}%>
+    <% } else { %>
+    <nav class="homePageNav ">
+      <div class="hamburger">
+        <div class="hamburger-line hamburger-lineIconColorWhite"></div>
+        <div class="hamburger-line hamburger-lineIconColorWhite"></div>
+        <div class="hamburger-line hamburger-lineIconColorWhite"></div>
+      </div>
+      <ul class="homePageNav--nav-links">
+        <%if(isUser) {%>
+        <li class="homPageNave--list-item"><a href="/cart">Cart</a></li>
+        <li class="homPageNave--list-item"><a href="/orders">Orders</a></li>
+        <%}else{%>
+        <li class="homPageNave--list-item"><a href="/login">login</a></li>
+        <li class="homPageNave--list-item"><a href="/signup">sing-up</a></li>
+        <%}%>
       <li class="homPageNave--list-item"><a href="#">About</a></li>
       <%if(isAdmin) {%>
-      <li class="homPageNave--list-item <%= pageTitle === 'Add Product' ? 'active' : '' %>">
-        <a href="/admin/add">Add Product</a>
-      </li>
+        <li class="homPageNave--list-item <%= pageTitle === 'Add Product' ? 'active' : '' %>">
+          <a href="/admin/add">Add Product</a>
+        </li>
 
-      <li class="homPageNave--list-item" <%= pageTitle === 'Manges Orders' ? 'active' : '' %>">
-        <a href="/admin/orders">Mange Order</a>
-      </li>
+        <li class="homPageNave--list-item" <%= pageTitle === 'Manges Orders' ? 'active' : '' %>">
+          <a href="/admin/orders">Mange Order</a>
+        </li>
 
-      <%}%>
+        <%}%>
 
 
       <%if(isUser) {%>
-      <form action="/logout" method="POST">
-        <input type="submit" value="logout" class="btn btn-danger">
-      </form>
-      <%}%>
+        <form action="/logout" method="POST">
+          <input type="submit" value="logout" class="btn btn-danger">
+        </form>
+        <%}%>
 
     </ul>
-    <a class="homePage-cart-icon" href="/cart"><i class=" fas fa-cart-arrow-down"></i></a>
+    <a class="homePage-cart-icon homePage-cart-icon-colorWhite" href="/cart"><i class=" fas fa-cart-arrow-down"></i></a>
   </nav>
 
   <% for(let product of products) {%>
 
-      <section class="HomeProductItem section animsition">
+        <section class="HomeProductItem section animsition ">
 
-        <!--start HomeProductItem-ctn-->
-        <div class="HomeProductItem--ctn">
+          <!--start HomeProductItem-ctn-->
+          <div class="HomeProductItem--ctn">
 
-          <!--start HomeProductItem--nav -->
-
-
-          <!--end HomeProductItem--nav -->
+            <!--start HomeProductItem--nav -->
 
 
-
-          <!--start HomePage-main-Content -->
-          <section class="HomePage-main-Content">
-            <h2 class="product_name"><%= product.name%></h2>
-
-
-            <div class="product_wraper">
-              <div class="imges">
-
-                <img class="shoes" src="<%= product.imageAndColor[0].image_name %>">
-                <input type="hidden" value="<%= product._id %>" class="productId_to_idenitfiyImg">
+            <!--end HomeProductItem--nav -->
 
 
 
-              </div>
+            <!--start HomePage-main-Content -->
+            <section class="HomePage-main-Content">
+              <h2 class="product_name"><%= product.name%></h2>
 
-              <div class="text_wraper">
-                <h3 class="selling_price"><%= product.price%>EGP</h3>
-                <div class="btn">
-                  <a class='add_to_cart add_to_cart_btn' onclick="show_productUI(this)" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Add To Cart
-                  </a>
+
+              <div class="product_wraper">
+                <div class="imges">
+
+                  <img class="shoes" src="<%= product.imageAndColor[0].image_name %>">
+                  <input type="hidden" value="<%= product._id %>" class="productId_to_idenitfiyImg">
+
+
+
                 </div>
-              </div>
 
-              <!--start ui_product -->
-              <div class="ui_product display_none">
-                <div class="ui_card">
-                  <a onclick="exit_addToCart_fun(this)" id="add_to_cart_ex_btn"><i class="fas fa-times"></i></a>
-                  <div class="imgBox">
-                    <img class="productImageInProductUi" src="<%= product.imageAndColor[0].image_name%>">
-                    <input type="hidden" value="<%= product._id %>" class="productId_to_idenitfiyImg">
-
-                  </div>
-                  <div class="contentBox">
-                    <h4><%= product.name %></h4>
-
-                    <form action="/cart" method="POST">
-                      <div class="size">
-
-                        <h4>Size :</h4>
-                        <select name="size">
-
-                          <% for(let i = 0 ; i < product.size.length ; i++ ){ %>
-                          <option value="<%= product.size[i]%>"><%= product.size[i]%></option>
-                          <% } %>
-
-
-                        </select>
-                      </div>
-
-                      <div class="color">
-                        <h4>color :</h4>
-
-                        <% for (let i = 0 ; i < product.imageAndColor.length ; i++){ %>
-                        <label class="radio-btn-ctn">
-                          <input class="theRealcheckmark" type="radio" <% if(i == 0){%>
-                            checked=" checked <%  console.log(i) } %>" name="color"
-                            value="<%=product.imageAndColor[i].image_color %>">
-                          <span class="checkmark"
-                            style="background-color: <%= product.imageAndColor[i].image_color %> "></span>
-                          <input type="hidden" value="<%= product.imageAndColor[i]._id %>">
-
-                        </label>
-                        <%  } %>
-
-
-                      </div>
-
-
-
-                      <input type="hidden" name="name" value="<%= product.name %>">
-                      <input type="hidden" name="price" value="<%= product.price %>">
-                      <input type="hidden" name="productId" value="<%= product._id %>">
-                      <input type="hidden" class="image_name_hidden_input" name="image_name"
-                        value="<%= product.imageAndColor[0].image_name%>">
-                      <input type="hidden" name="redirectTo" value="/">
-                      <input type="hidden" value="1" name="amount" class="form-control">
-                      <a href="#"><input type="submit" value="Buy Now"> </a>
-                      <span class="priceTage"><%= product.price %> EG</span>
-
-                    </form>
-
+                <div class="text_wraper">
+                  <h3 class="selling_price"><%= product.price%>EGP</h3>
+                  <div class="btn">
+                    <a class='add_to_cart add_to_cart_btn' onclick="show_productUI(this)" href="#">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Add To Cart
+                    </a>
                   </div>
                 </div>
+
+                <!--start ui_product -->
+                <div class="ui_product display_none">
+                  <div class="ui_card">
+                    <a onclick="exit_addToCart_fun(this)" id="add_to_cart_ex_btn"><i class="fas fa-times"></i></a>
+                    <div class="imgBox">
+                      <img class="productImageInProductUi" src="<%= product.imageAndColor[0].image_name%>">
+                      <input type="hidden" value="<%= product._id %>" class="productId_to_idenitfiyImg">
+
+                    </div>
+                    <div class="contentBox">
+                      <h4><%= product.name %></h4>
+
+                      <form action="/cart" method="POST">
+                        <div class="size">
+
+                          <h4>Size :</h4>
+                          <select name="size">
+
+                            <% for(let i = 0 ; i < product.size.length ; i++ ){ %>
+                            <option value="<%= product.size[i]%>"><%= product.size[i]%></option>
+                            <% } %>
+
+
+                          </select>
+                        </div>
+
+                        <div class="color">
+                          <h4>color :</h4>
+
+                          <% for (let i = 0 ; i < product.imageAndColor.length ; i++){ %>
+                          <label class="radio-btn-ctn">
+                            <input class="theRealcheckmark" type="radio" <% if(i == 0){%>
+                              checked=" checked <%  console.log(i) } %>" name="color"
+                              value="<%=product.imageAndColor[i].image_color %>">
+                            <span class="checkmark"
+                              style="background-color: <%= product.imageAndColor[i].image_color %> "></span>
+                            <input type="hidden" value="<%= product.imageAndColor[i]._id %>">
+
+                          </label>
+                          <%  } %>
+
+
+                        </div>
+
+
+
+                        <input type="hidden" name="name" value="<%= product.name %>">
+                        <input type="hidden" name="price" value="<%= product.price %>">
+                        <input type="hidden" name="productId" value="<%= product._id %>">
+                        <input type="hidden" class="image_name_hidden_input" name="image_name"
+                          value="<%= product.imageAndColor[0].image_name%>">
+                        <input type="hidden" name="redirectTo" value="/">
+                        <input type="hidden" value="1" name="amount" class="form-control">
+                        <a href="#"><input type="submit" value="Buy Now"> </a>
+                        <span class="priceTage"><%= product.price %> EG</span>
+
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!--end ui_product -->
+
+
+
+
               </div>
 
-              <!--end ui_product -->
-
-
-
-
-            </div>
 
 
 
 
 
 
+              <div class="description_text_wraper">
+                <p class="product_description">
+                  <%= product.description%>
 
-            <div class="description_text_wraper">
-              <p class="product_description">
-                <%= product.description%>
-
-              </p>
-            </div>
-
+                </p>
+              </div>
 
 
-          </section>
-          <!--end HomePage-main-Content-->
 
-        </div>
-        <!--end HomeProductItem-ctn-->
+            </section>
+            <!--end HomePage-main-Content-->
 
-      </section>
-      <!--end HomeProductItem-->
-      <%}%>
+          </div>
+          <!--end HomeProductItem-ctn-->
+
+        </section>
+        <!--end HomeProductItem-->
+        <%}%>
 
 
                       <%}%>
-</div>
-<!--end fullpage-->
+  </div>
+  <!--end fullpage-->
 
 
 
@@ -202,10 +204,10 @@
 
 
 
-<script>
-  let products = JSON.parse('<%- JSON.stringify(products) %>');
+  <script>
+    let products = JSON.parse('<%- JSON.stringify(products) %>');
 
 
-</script>
+  </script>
 
-<%- include('parts/footer') %>
+  <%- include('parts/footer') %>

@@ -40,10 +40,23 @@ if (title.textContent == 'Home - online shop') {
     const humburguer = document.querySelector('.hamburger')
     const navLinks = document.querySelector('.homePageNav--nav-links')
     const links = document.querySelectorAll('.homPageNave--list-item')
+    const hamburger_line = document.querySelectorAll('.hamburger-line')
+    const homePage_cart_icon = document.querySelector('.homePage-cart-icon')
 
 
     humburguer.addEventListener('click', () => {
         navLinks.classList.toggle('open')
+
+        hamburger_line.forEach(bar => {
+            bar.classList.toggle('hamburger-lineIconColorBlack')
+            bar.classList.toggle('hamburger-lineIconColorWhite')
+
+        })
+        homePage_cart_icon.classList.toggle('homePage-cart-icon-colorWhite')
+
+        homePage_cart_icon.classList.toggle('homePage-cart-icon-colorBlack')
+
+
         links.forEach(link => {
             link.classList.toggle('fade')
         })

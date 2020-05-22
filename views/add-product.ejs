@@ -1,28 +1,30 @@
 <%- include('parts/header') %>
 <%- include('parts/navbar') %>
-<div class="container text-center animsition">
-    <form action="/admin/add" enctype="multipart/form-data" method="POST">
-        <h3>Add Product</h3>
+
+<body class="">
+    <div class="container text-center animsition">
+        <form action="/admin/add" enctype="multipart/form-data" method="POST">
+            <h3>Add Product</h3>
 
 
-        <input type="text" name="name" placeholder="Name" class="form-control">
-        <% let nameErro = validationErros.find(err => err.param === 'name') %>
-        <% if (nameErro){%>
-        <p class="alert alert-danger">
-            <%= nameErro.msg %>
-        </p>
-        <%}%>
+            <input type="text" name="name" placeholder="Name" class="form-control">
+            <% let nameErro = validationErros.find(err => err.param === 'name') %>
+            <% if (nameErro){%>
+            <p class="alert alert-danger">
+                <%= nameErro.msg %>
+            </p>
+            <%}%>
 
 
     
         
         <input type="number"  name="price" placeholder="Price" class="form-control"  >
             <% let priceErro = validationErros.find(err => err.param === 'price') %>
-        <% if (priceErro){%>
-        <p class="alert alert-danger">
-            <%= priceErro.msg %>
-        </p>
-        <%}%>
+            <% if (priceErro){%>
+            <p class="alert alert-danger">
+                <%= priceErro.msg %>
+            </p>
+            <%}%>
 
         
       
@@ -30,11 +32,11 @@
 
         <input type="text" name="description" placeholder="Description" class="form-control" >
             <% let descriptionErro = validationErros.find(err => err.param === 'description') %>
-        <% if (descriptionErro){%>
-        <p class="alert alert-danger">
-            <%= descriptionErro.msg %>
-        </p>
-        <%}%>
+            <% if (descriptionErro){%>
+            <p class="alert alert-danger">
+                <%= descriptionErro.msg %>
+            </p>
+            <%}%>
 
       
         
@@ -46,11 +48,11 @@
             <option value="womens_accessories"> women's accessories </option>
         </select>
         <% let categoryErro = validationErros.find(err => err.param === 'category') %>
-        <% if (categoryErro){%>
-        <p class="alert alert-danger">
-            <%= categoryErro.msg %>
-        </p>
-        <%}%>
+            <% if (categoryErro){%>
+            <p class="alert alert-danger">
+                <%= categoryErro.msg %>
+            </p>
+            <%}%>
 
         <select class="form-control slectColorAndImg" >
             <option hidden selected> choose how many color for the product</option>
@@ -68,11 +70,11 @@
     
 
         <% let   imagesArray = validationErros.find(err => err.param === 'imagesArray') %>
-        <% if (  imagesArray){%>
-        <p class="alert alert-danger">
-            <%=   imagesArray.msg %>
-        </p>
-        <%}%>
+            <% if (  imagesArray){%>
+            <p class="alert alert-danger">
+                <%=   imagesArray.msg %>
+            </p>
+            <%}%>
       
       </div>
 

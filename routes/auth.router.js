@@ -24,4 +24,4 @@ router.post('/login', authGuards.isNotAuth, bodyParser.urlencoded({ extended: tr
 
 router.all('/logout', authGuards.isAuth, authController.logout)
 
-module.exports = router
+module.exports = router  

@@ -2,64 +2,66 @@
 <%- include('parts/navbar') %>
 
 
-<div class="ctn--auth animsition">
-    <div class="container">
-        <div class="authorization">
-            <h2 class="authorization--title">cotchy</h2>
+<body class="">
+    <div class="ctn--auth animsition">
+        <div class="container">
+            <div class="authorization">
+                <h2 class="authorization--title">cotchy</h2>
 
-            <form action="/login" method="POST">
-                <div class="authorization--inputWraper">
-
-
-
+                <form action="/login" method="POST">
+                    <div class="authorization--inputWraper">
 
 
 
-                    <input class="authorization--inputWraper__email" name="email" type="email" placeholder="ُE-mail">
-                    <% let EmailErro = validationErrors.find(erro => erro.param === 'email')  %>
-                    <% if(EmailErro){ %>
-                    <p class="alert alert-danger">
-                        <%= EmailErro.msg %>
-                    </p>
 
-                    <%}%>
+
+
+                        <input class="authorization--inputWraper__email" name="email" type="email"
+                            placeholder="ُE-mail">
+                        <% let EmailErro = validationErrors.find(erro => erro.param === 'email')  %>
+                        <% if(EmailErro){ %>
+                        <p class="alert alert-danger">
+                            <%= EmailErro.msg %>
+                        </p>
+
+                        <%}%>
 
                     
                      
                     
                     <input class="authorization--inputWraper__password" type="password" name="password" placeholder="password">
                     <% let passwordErro = validationErrors.find(erro => erro.param === 'password')  %>
-                    <% if(passwordErro){ %>
-                    <p class="alert alert-danger">
-                        <%= passwordErro.msg %>
-                    </p>
+                        <% if(passwordErro){ %>
+                        <p class="alert alert-danger">
+                            <%= passwordErro.msg %>
+                        </p>
 
-                    <%}%>
+                        <%}%>
 
                     <span class="authorization--inputWraper__forgetPassword">forget password</span>
                     <% if(authError) { %>
-                    <br>
-                    <p class="alert alert-danger">
-                        <%= authError %>
-                    </p>
-                    <% } %>
-                    <input class="authorization--inputWraper__login" type="submit" value="log in">
-                    <span class="authorization--inputWraper__singup">don't have an account ? <a href="/signup">sing
-                            up</a></span>
+                        <br>
+                        <p class="alert alert-danger">
+                            <%= authError %>
+                        </p>
+                        <% } %>
+                        <input class="authorization--inputWraper__login" type="submit" value="log in">
+                        <span class="authorization--inputWraper__singup">don't have an account ? <a href="/signup">sing
+                                up</a></span>
 
+                    </div>
+                </form>
+
+
+
+                <div class="contactUs">
+                    <span class="contactUs--icon"> <a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></span>
+                    <span class="contactUs--icon"><a href="#"><i class="fab fa-instagram fa-lg"></i></a></span>
                 </div>
-            </form>
-
-
-
-            <div class="contactUs">
-                <span class="contactUs--icon"> <a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></span>
-                <span class="contactUs--icon"><a href="#"><i class="fab fa-instagram fa-lg"></i></a></span>
             </div>
+
         </div>
-
     </div>
-</div>
 
 
-<%- include('parts/footer') %>
+    <%- include('parts/footer') %>

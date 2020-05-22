@@ -4,7 +4,6 @@ const port = 3000;
 const app = express();
 
 
-
 const Session = require("express-session")
 const SessionStore = require("connect-mongodb-session")(Session)
 const flash = require('connect-flash')
@@ -17,6 +16,8 @@ const orderRouter = require('./routes/orders.router')
 const verifyOrder = require('./routes/verifyOrder.router')
 const adminRouter = require('./routes/admin.router')
 const orderInfo = require('./routes/orderInfo.router')
+
+
 
 app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "images")));
@@ -36,6 +37,8 @@ app.use(Session({
   resave: true,
   saveUninitialized: true
 }))
+
+
 
 app.use(flash())
 app.use('/', homeRouter);

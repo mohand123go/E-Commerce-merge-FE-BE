@@ -2,7 +2,9 @@ p h1 h2 h3 h4 h5 h6 span{
     padding: 0;
     margin: 0;
 }
-
+#CartBodyColor{
+    background-color: white !important;
+}
 .width-100{
     width: 100%;
     height: 100%;
