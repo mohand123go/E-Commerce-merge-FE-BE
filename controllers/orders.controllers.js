@@ -84,35 +84,43 @@ exports.postOrderCancelAll = (req, res, next) => {
 
 exports.postOrderAllCart = (req, res, next) => {
 
-    ordersModel.findAllOrder(req.session.userId).then((All_Order_In_The_Cart) => {
-        console.log('req.session.userEmail', req.session.userEmail)
-        let buyerInfo = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            addressLine1: req.body.addressLine1,
-            addressLine2: req.body.addressLine2,
-            city: req.body.city,
-            mobileNumber: req.body.mobileNumber,
-            userEmail: req.session.userEmail
-        }
-        let orderInfor = {
-            subTotal: req.body.subTotal,
-            ShippingCost: req.body.ShippingCost,
-            CartTotal: req.body.CartTotal,
-            CartProductAmount: req.body.CartProductAmount,
-            date: new Date()
-        }
+    if (validationResult(req).isEmpty()) {
 
-        ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {
-            console.log('im here next to the next ordersModel.addNewOrde')
-            next()
+        ordersModel.findAllOrder(req.session.userId).then((All_Order_In_The_Cart) => {
+            console.log('req.session.userEmail', req.session.userEmail)
+            let buyerInfo = {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                addressLine1: req.body.addressLine1,
+                addressLine2: req.body.addressLine2,
+                city: req.body.city,
+                mobileNumber: req.body.mobileNumber,
+                userEmail: req.session.userEmail
+            }
+            let orderInfor = {
+                subTotal: req.body.subTotal,
+                ShippingCost: req.body.ShippingCost,
+                CartTotal: req.body.CartTotal,
+                CartProductAmount: req.body.CartProductAmount,
+                date: new Date()
+            }
 
-        }).catch(erro => {
-            console.log(erro, 'postOrderAllCart')
+            ordersModel.addNewOrder(orderInfor, buyerInfo, All_Order_In_The_Cart).then(() => {
+                console.log('im here next to the next ordersModel.addNewOrde')
+                next()
+
+            }).catch(erro => {
+                console.log(erro, 'postOrderAllCart')
+            })
+
+
         })
+    } else {
+        req.flash('validationErrors', validationResult(req).array())
+        res.redirect('/verifyOrder/orderAll')
+    }
 
 
-    })
 
 
 

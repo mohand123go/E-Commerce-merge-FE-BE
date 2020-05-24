@@ -18,6 +18,12 @@ router.post('/', authGuards.isAuth,
 
 router.post('/orderAll', authGuards.isAuth,
     bodyParser.urlencoded({ extended: true }),
+    check('firstName').not().isEmpty().withMessage('first name is require'),
+    check('lastName').not().isEmpty().withMessage('last name is require'),
+    check('addressLine1').not().isEmpty().withMessage('address line 1 is require'),
+    check('addressLine2').not().isEmpty().withMessage('address line 2 is require'),
+    check('city').not().isEmpty().withMessage('city is require'),
+    check('mobileNumber').not().isEmpty().withMessage('mobile number is require'),
     ordersController.postOrderAllCart, ordersController.postOrderAllCartDelete)
 
 

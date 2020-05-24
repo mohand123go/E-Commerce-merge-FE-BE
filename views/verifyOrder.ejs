@@ -16,50 +16,102 @@
                 </div>
             </div>
             <form method="POST">
+
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">first name <span
                             class="form--inputWraper__labelStar">*</span></label>
                     <input class="form--inputWraper__input" name="firstName" type="text" placeholder="Demo">
+                    <% let firstNameErro = validationErrors.find(err => err.param === 'firstName') %>
+                    <% if (firstNameErro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= firstNameErro.msg %>
+                    </p>
+                    <%}%>
                 </div>
+              
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">last name <span
                             class="form--inputWraper__labelStar">*</span></label>
                     <input class="form--inputWraper__input" name="lastName" type="text" placeholder="preview">
+                    <% let lastNameErro = validationErrors.find(err => err.param === 'lastName') %>
+                    <% if (lastNameErro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= lastNameErro.msg %>
+                    </p>
+                    <%}%>
                 </div>
+
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">address line 1 <span
                             class="form--inputWraper__labelStar">*</span></label>
                     <input class="form--inputWraper__input" name="addressLine1" type="text" placeholder="xx Ann ave">
+                    <% let addressLine1Erro = validationErrors.find(err => err.param === 'addressLine1') %>
+                    <% if (addressLine1Erro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= addressLine1Erro.msg %>
+                    </p>
+                    <%}%>
                 </div>
+
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">address line 2 <span
                             class="form--inputWraper__labelStar"></span></label>
                     <input class="form--inputWraper__input" name="addressLine2" type="text" placeholder="">
+
+                    <% let addressLine2Erro = validationErrors.find(err => err.param === 'addressLine2') %>
+                    <% if (addressLine2Erro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= addressLine2Erro.msg %>
+                    </p>
+                    <%}%>
+
                 </div>
+
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">city <span
                             class="form--inputWraper__labelStar">*</span></label>
                     <input class="form--inputWraper__input" name="city" type="text" placeholder="Cairo">
+
+                    <% let cityErro = validationErrors.find(err => err.param === 'city') %>
+                    <% if (cityErro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= cityErro.msg %>
+                    </p>
+                    <%}%>
+
                 </div>
+
+
                 <div class="form--inputWraper">
                     <label class="form--inputWraper__label">mobile number <span
                             class="form--inputWraper__labelStar">*</span></label>
                     <input class="form--inputWraper__input " name="mobileNumber" type="text" placeholder="01******5">
+                    <% let mobileNumberErro = validationErrors.find(err => err.param === 'mobileNumber') %>
+                    <% if (mobileNumberErro){%>
+                    <p class="alert alert-danger" style="width: 80%;">
+                        <%= mobileNumberErro.msg %>
+                    </p>
+                    <%}%>
                 </div>
 
 
                 <!-- start orderInfor input-->
                 <input type="hidden" name="subTotal" value="<%= orderInfo.subTotal %>">
 
-                <input type="hidden" name="ShippingCost" value="<%= orderInfo.ShippingCost %>">
+                    <input type="hidden" name="ShippingCost" value="<%= orderInfo.ShippingCost %>">
 
-                <input type="hidden" name="CartTotal" value="<%= orderInfo.CartTotal %>">
+                    <input type="hidden" name="CartTotal" value="<%= orderInfo.CartTotal %>">
 
-                <input type="hidden" name="CartProductAmount" value="<%= orderInfo.CartProductAmount %>">
+                    <input type="hidden" name="CartProductAmount" value="<%= orderInfo.CartProductAmount %>">
 
 
-                <!-- end orderInfor input-->
-                <!-- order button funcation
+                    <!-- end orderInfor input-->
+                    <!-- order button funcation
             
       
                  <%# if (orderItem.order == "order") { %>
@@ -73,12 +125,13 @@
 
                 -->
 
-                <%# } %>
+                    <%# } %>
 
-                <div class="form--submitWraper">
-                    <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit"
-                        value="Next">
-                </div>
+                    <div class="form--submitWraper">
+                        <input formaction="/orders/orderAll" class="form--submitWraper__submitBtn" type="submit"
+                            value="Next">
+                    </div>
+
 
 
 

@@ -28,7 +28,8 @@ exports.postVerifyOrder = (req, res, next) => {
             },
             cartId: req.body.cartId,
             isAdmin: req.session.isAdmin,
-            pageTitle: 'verifyOrder'
+            pageTitle: 'verifyOrder',
+            validationErrors: req.flash('validationErrors'),
         })
 
 

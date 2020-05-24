@@ -10,6 +10,10 @@ router.post('/', bodyParser.urlencoded({ extended: true }), check('amount').not(
     VerifyOrderController.postVerifyOrder)
     */
 
-router.post('/orderAll', bodyParser.urlencoded({ extended: true }), VerifyOrderController.postVerifyOrder)
+router.post('/orderAll', bodyParser.urlencoded({ extended: true }),
+    VerifyOrderController.postVerifyOrder)
+
+router.get('/orderAll', bodyParser.urlencoded({ extended: true }),
+    VerifyOrderController.postVerifyOrder)
 
 module.exports = router
