@@ -84,7 +84,7 @@ exports.postOrderCancelAll = (req, res, next) => {
 
 exports.postOrderAllCart = (req, res, next) => {
 
-    ordersModel.findAllOrder().then((All_Order_In_The_Cart) => {
+    ordersModel.findAllOrder(req.session.userId).then((All_Order_In_The_Cart) => {
         console.log('req.session.userEmail', req.session.userEmail)
         let buyerInfo = {
             firstName: req.body.firstName,
@@ -122,7 +122,7 @@ exports.postOrderAllCart = (req, res, next) => {
 
 
 exports.postOrderAllCartDelete = (req, res, next) => {
-    cartModel.deleteAllItem().then(() => {
+    cartModel.deleteAllItem(req.session.userId).then(() => {
         console.log('next to orders redirect')
         res.redirect('/orders')
     }).catch((erro) => {

@@ -152,12 +152,12 @@ exports.cancelAllOrders = () => {
 
 
 
-exports.findAllOrder = () => {
+exports.findAllOrder = (userId) => {
 
     return new Promise((resolve, reject) => {
 
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-            return cartModel.cartItem.find()
+            return cartModel.cartItem.find({ userId: userId })
         }).then((dbResp) => {
 
             mongoose.disconnect();

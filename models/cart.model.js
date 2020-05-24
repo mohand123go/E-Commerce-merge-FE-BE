@@ -118,11 +118,11 @@ exports.deleteItem = (id) => {
 }
 
 
-exports.deleteAllItem = () => {
+exports.deleteAllItem = (userId) => {
     return new Promise((resolve, reject) => {
 
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-            return cartItem.deleteMany({})
+            return cartItem.deleteMany({ userId: userId })
         }
         ).then((delet) => {
             mongoose.disconnect()
