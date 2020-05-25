@@ -28,6 +28,7 @@ const orderSchema = mongoose.Schema({
         userEmail: String
 
     },
+
     item: [{
         _id: String,
         name: String,
@@ -42,6 +43,7 @@ const orderSchema = mongoose.Schema({
 
 
     }]
+
 
 })
 const orderItems = mongoose.model('order', orderSchema)
@@ -88,7 +90,7 @@ exports.addNewOrder = (orderInfo, buyerInfo, data) => {
 exports.getItemByUser = (userId) => {
     return new Promise((resolve, reject) => {
 
-        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => orderItems.find({ "item.userId": userId }, {}, { sort: { timestamp: -1 } })
+        mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => orderItems.find({ "item.userId": userId }, {}, { sort: { "orderInfo.date": -1 } })
 
         ).then((order) => {
             console.log(order)
@@ -371,9 +373,10 @@ exports.getAllOrderToAdmin = () => {
     return new Promise((resolve, reject) => {
 
         mongoose.connect(DB_URl, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-            return orderItems.find()
+            return orderItems.find({}, {}, { sort: { 'orderInfo.date': -1 } })
 
         }).then((orders) => {
+
 
             mongoose.disconnect();
 

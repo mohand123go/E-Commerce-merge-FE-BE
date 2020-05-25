@@ -1,5 +1,6 @@
 #homePageBodyColor{
     background: linear-gradient(54deg, rgba(213,203,202,1) 0%, rgba(232,227,224,1) 20%, rgba(227,222,219,1) 51%, rgba(174,168,168,1) 100%);
+    overflow-x: hidden;
   
 }
 
