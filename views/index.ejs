@@ -14,11 +14,6 @@
 
     <!--start HomeProductItem-->
 
-    <% if(products.length == 0 ){%>
-    <div class="alert alert-danger">
-      there is no products
-    </div>
-    <% } else { %>
     <nav class="homePageNav ">
       <div class="hamburger">
         <div class="hamburger-line hamburger-lineIconColorWhite"></div>
@@ -55,8 +50,14 @@
     </ul>
     <a class="homePage-cart-icon homePage-cart-icon-colorWhite" href="/cart"><i class=" fas fa-cart-arrow-down"></i></a>
   </nav>
+  
+  <% if(products.length == 0 ){%>
+        <div class="alert alert-danger ">
+          there is no products
+        </div>
+        <% } else { %>
 
-  <% for(let product of products) {%>
+        <% for(let product of products) {%>
 
         <section class="HomeProductItem section animsition ">
 
